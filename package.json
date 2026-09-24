@@ -1,0 +1,15 @@
+{
+  "name": "powerbi-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "Power BI, SQL and Excel dashboard projects by Onu Emeka Barnabas",
+  "scripts": {
+    "data": "node scripts/generate-data.mjs",
+    "build": "node scripts/build-dashboards.mjs",
+    "screenshots": "node scripts/render-screenshots.mjs",
+    "all": "npm run data && npm run build && npm run screenshots"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "GiantBase Dark",
+  "dataColors": ["#2B9FD9", "#D95926", "#9085E9", "#199E70", "#C98500", "#D55181"],
+  "background": "#111A2E",
+  "foreground": "#E8EEF8",
+  "tableAccent": "#2B9FD9",
+  "good": "#0CA30C",
+  "neutral": "#FAB219",
+  "bad": "#D03B3B",
+  "maximum": "#2B9FD9",
+  "center": "#7C8AA5",
+  "minimum": "#1C2740",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#E8EEF8" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#A9B6CC" },
+    "callout": { "fontFace": "Segoe UI Bold", "fontSize": 26, "color": "#E8EEF8" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#111A2E" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#1F2B45" } }, "radius": 12 }],
+        "valueAxis": [{ "gridlineColor": { "solid": { "color": "#1C2740" } } }]
+      }
+    },
+    "page": { "*": { "background": [{ "color": { "solid": { "color": "#0B1222" } }, "transparency": 0 }] } }
+  }
+}

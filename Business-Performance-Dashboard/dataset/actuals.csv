@@ -1,0 +1,109 @@
+Month,AccountType,Category,ActualNGN
+2025-01-01,Revenue,Installations,37554760
+2025-01-01,Revenue,Managed Services,14463209
+2025-01-01,Revenue,Equipment Sales,20322366
+2025-01-01,Expense,Salaries,20745918
+2025-01-01,Expense,Equipment & Materials,23662711
+2025-01-01,Expense,Logistics & Fuel,5264574
+2025-01-01,Expense,Rent & Utilities,3042452
+2025-01-01,Expense,Marketing,1865038
+2025-01-01,Expense,Other Overheads,2407416
+2025-02-01,Revenue,Installations,34319368
+2025-02-01,Revenue,Managed Services,15362238
+2025-02-01,Revenue,Equipment Sales,22439542
+2025-02-01,Expense,Salaries,21220069
+2025-02-01,Expense,Equipment & Materials,22870819
+2025-02-01,Expense,Logistics & Fuel,5677247
+2025-02-01,Expense,Rent & Utilities,3226985
+2025-02-01,Expense,Marketing,1953752
+2025-02-01,Expense,Other Overheads,2335873
+2025-03-01,Revenue,Installations,35933213
+2025-03-01,Revenue,Managed Services,17278605
+2025-03-01,Revenue,Equipment Sales,22238237
+2025-03-01,Expense,Salaries,22010327
+2025-03-01,Expense,Equipment & Materials,22953099
+2025-03-01,Expense,Logistics & Fuel,5861373
+2025-03-01,Expense,Rent & Utilities,3577846
+2025-03-01,Expense,Marketing,1792122
+2025-03-01,Expense,Other Overheads,2447128
+2025-04-01,Revenue,Installations,36297460
+2025-04-01,Revenue,Managed Services,14430966
+2025-04-01,Revenue,Equipment Sales,24592428
+2025-04-01,Expense,Salaries,21536051
+2025-04-01,Expense,Equipment & Materials,23073704
+2025-04-01,Expense,Logistics & Fuel,5768388
+2025-04-01,Expense,Rent & Utilities,3335370
+2025-04-01,Expense,Marketing,1955939
+2025-04-01,Expense,Other Overheads,2530315
+2025-05-01,Revenue,Installations,44527758
+2025-05-01,Revenue,Managed Services,18144573
+2025-05-01,Revenue,Equipment Sales,26121664
+2025-05-01,Expense,Salaries,23462645
+2025-05-01,Expense,Equipment & Materials,24408959
+2025-05-01,Expense,Logistics & Fuel,5737129
+2025-05-01,Expense,Rent & Utilities,3523276
+2025-05-01,Expense,Marketing,1694011
+2025-05-01,Expense,Other Overheads,2525056
+2025-06-01,Revenue,Installations,37039866
+2025-06-01,Revenue,Managed Services,15584603
+2025-06-01,Revenue,Equipment Sales,24864026
+2025-06-01,Expense,Salaries,22832457
+2025-06-01,Expense,Equipment & Materials,25433376
+2025-06-01,Expense,Logistics & Fuel,5840671
+2025-06-01,Expense,Rent & Utilities,3290963
+2025-06-01,Expense,Marketing,1905644
+2025-06-01,Expense,Other Overheads,2492675
+2025-07-01,Revenue,Installations,42973238
+2025-07-01,Revenue,Managed Services,18499206
+2025-07-01,Revenue,Equipment Sales,23593337
+2025-07-01,Expense,Salaries,22900564
+2025-07-01,Expense,Equipment & Materials,25909768
+2025-07-01,Expense,Logistics & Fuel,5827811
+2025-07-01,Expense,Rent & Utilities,3663432
+2025-07-01,Expense,Marketing,1800397
+2025-07-01,Expense,Other Overheads,2430203
+2025-08-01,Revenue,Installations,42745840
+2025-08-01,Revenue,Managed Services,19006164
+2025-08-01,Revenue,Equipment Sales,26884668
+2025-08-01,Expense,Salaries,22859056
+2025-08-01,Expense,Equipment & Materials,26350803
+2025-08-01,Expense,Logistics & Fuel,6035672
+2025-08-01,Expense,Rent & Utilities,3534022
+2025-08-01,Expense,Marketing,1919022
+2025-08-01,Expense,Other Overheads,2552516
+2025-09-01,Revenue,Installations,46990283
+2025-09-01,Revenue,Managed Services,17291730
+2025-09-01,Revenue,Equipment Sales,26203773
+2025-09-01,Expense,Salaries,22975429
+2025-09-01,Expense,Equipment & Materials,26151180
+2025-09-01,Expense,Logistics & Fuel,5800351
+2025-09-01,Expense,Rent & Utilities,3367281
+2025-09-01,Expense,Marketing,1961109
+2025-09-01,Expense,Other Overheads,2467696
+2025-10-01,Revenue,Installations,52417662
+2025-10-01,Revenue,Managed Services,20926243
+2025-10-01,Revenue,Equipment Sales,26201555
+2025-10-01,Expense,Salaries,22248150
+2025-10-01,Expense,Equipment & Materials,27881011
+2025-10-01,Expense,Logistics & Fuel,5749352
+2025-10-01,Expense,Rent & Utilities,3620523
+2025-10-01,Expense,Marketing,1952727
+2025-10-01,Expense,Other Overheads,2636138
+2025-11-01,Revenue,Installations,53346941
+2025-11-01,Revenue,Managed Services,19824294
+2025-11-01,Revenue,Equipment Sales,25098244
+2025-11-01,Expense,Salaries,24861633
+2025-11-01,Expense,Equipment & Materials,26563462
+2025-11-01,Expense,Logistics & Fuel,5998244
+2025-11-01,Expense,Rent & Utilities,3370416
+2025-11-01,Expense,Marketing,2038443
+2025-11-01,Expense,Other Overheads,2617517
+2025-12-01,Revenue,Installations,51056741
+2025-12-01,Revenue,Managed Services,20345210
+2025-12-01,Revenue,Equipment Sales,27785087
+2025-12-01,Expense,Salaries,22700518
+2025-12-01,Expense,Equipment & Materials,26426955
+2025-12-01,Expense,Logistics & Fuel,5906012
+2025-12-01,Expense,Rent & Utilities,3589346
+2025-12-01,Expense,Marketing,2176192
+2025-12-01,Expense,Other Overheads,2518912

@@ -1,0 +1,729 @@
+WeekStarting,Engineer,Team,HoursAvailable,HoursAllocated
+2025-01-06,Engineer 01,Network,40,30
+2025-01-06,Engineer 02,Network,40,36
+2025-01-06,Engineer 03,Infrastructure,40,26
+2025-01-06,Engineer 04,Power & Electrical,40,42
+2025-01-06,Engineer 05,Field Support,40,29
+2025-01-06,Engineer 06,Network,40,38
+2025-01-06,Engineer 07,Network,40,28
+2025-01-06,Engineer 08,Infrastructure,40,35
+2025-01-06,Engineer 09,Power & Electrical,40,39
+2025-01-06,Engineer 10,Field Support,40,37
+2025-01-06,Engineer 11,Network,40,27
+2025-01-06,Engineer 12,Network,40,38
+2025-01-06,Engineer 13,Infrastructure,40,26
+2025-01-06,Engineer 14,Power & Electrical,40,25
+2025-01-13,Engineer 01,Network,40,27
+2025-01-13,Engineer 02,Network,40,31
+2025-01-13,Engineer 03,Infrastructure,40,28
+2025-01-13,Engineer 04,Power & Electrical,40,31
+2025-01-13,Engineer 05,Field Support,40,36
+2025-01-13,Engineer 06,Network,40,26
+2025-01-13,Engineer 07,Network,40,25
+2025-01-13,Engineer 08,Infrastructure,40,36
+2025-01-13,Engineer 09,Power & Electrical,40,30
+2025-01-13,Engineer 10,Field Support,32,30
+2025-01-13,Engineer 11,Network,40,35
+2025-01-13,Engineer 12,Network,40,34
+2025-01-13,Engineer 13,Infrastructure,40,30
+2025-01-13,Engineer 14,Power & Electrical,40,35
+2025-01-20,Engineer 01,Network,40,30
+2025-01-20,Engineer 02,Network,40,33
+2025-01-20,Engineer 03,Infrastructure,40,27
+2025-01-20,Engineer 04,Power & Electrical,40,30
+2025-01-20,Engineer 05,Field Support,40,34
+2025-01-20,Engineer 06,Network,40,37
+2025-01-20,Engineer 07,Network,40,39
+2025-01-20,Engineer 08,Infrastructure,40,34
+2025-01-20,Engineer 09,Power & Electrical,40,34
+2025-01-20,Engineer 10,Field Support,32,31
+2025-01-20,Engineer 11,Network,40,31
+2025-01-20,Engineer 12,Network,40,38
+2025-01-20,Engineer 13,Infrastructure,40,30
+2025-01-20,Engineer 14,Power & Electrical,40,30
+2025-01-27,Engineer 01,Network,40,36
+2025-01-27,Engineer 02,Network,40,33
+2025-01-27,Engineer 03,Infrastructure,40,38
+2025-01-27,Engineer 04,Power & Electrical,40,33
+2025-01-27,Engineer 05,Field Support,40,33
+2025-01-27,Engineer 06,Network,40,33
+2025-01-27,Engineer 07,Network,40,32
+2025-01-27,Engineer 08,Infrastructure,40,28
+2025-01-27,Engineer 09,Power & Electrical,40,41
+2025-01-27,Engineer 10,Field Support,40,37
+2025-01-27,Engineer 11,Network,40,25
+2025-01-27,Engineer 12,Network,32,23
+2025-01-27,Engineer 13,Infrastructure,40,25
+2025-01-27,Engineer 14,Power & Electrical,40,35
+2025-02-03,Engineer 01,Network,40,29
+2025-02-03,Engineer 02,Network,40,28
+2025-02-03,Engineer 03,Infrastructure,40,38
+2025-02-03,Engineer 04,Power & Electrical,40,30
+2025-02-03,Engineer 05,Field Support,40,25
+2025-02-03,Engineer 06,Network,40,33
+2025-02-03,Engineer 07,Network,40,35
+2025-02-03,Engineer 08,Infrastructure,40,29
+2025-02-03,Engineer 09,Power & Electrical,40,32
+2025-02-03,Engineer 10,Field Support,40,38
+2025-02-03,Engineer 11,Network,40,33
+2025-02-03,Engineer 12,Network,40,30
+2025-02-03,Engineer 13,Infrastructure,40,36
+2025-02-03,Engineer 14,Power & Electrical,40,35
+2025-02-10,Engineer 01,Network,40,34
+2025-02-10,Engineer 02,Network,40,34
+2025-02-10,Engineer 03,Infrastructure,40,32
+2025-02-10,Engineer 04,Power & Electrical,40,29
+2025-02-10,Engineer 05,Field Support,40,41
+2025-02-10,Engineer 06,Network,40,31
+2025-02-10,Engineer 07,Network,40,35
+2025-02-10,Engineer 08,Infrastructure,40,25
+2025-02-10,Engineer 09,Power & Electrical,40,33
+2025-02-10,Engineer 10,Field Support,40,39
+2025-02-10,Engineer 11,Network,40,41
+2025-02-10,Engineer 12,Network,40,32
+2025-02-10,Engineer 13,Infrastructure,40,28
+2025-02-10,Engineer 14,Power & Electrical,40,29
+2025-02-17,Engineer 01,Network,40,35
+2025-02-17,Engineer 02,Network,32,27
+2025-02-17,Engineer 03,Infrastructure,40,37
+2025-02-17,Engineer 04,Power & Electrical,40,29
+2025-02-17,Engineer 05,Field Support,40,43
+2025-02-17,Engineer 06,Network,40,35
+2025-02-17,Engineer 07,Network,40,43
+2025-02-17,Engineer 08,Infrastructure,40,37
+2025-02-17,Engineer 09,Power & Electrical,40,43
+2025-02-17,Engineer 10,Field Support,40,23
+2025-02-17,Engineer 11,Network,40,34
+2025-02-17,Engineer 12,Network,40,30
+2025-02-17,Engineer 13,Infrastructure,40,41
+2025-02-17,Engineer 14,Power & Electrical,40,36
+2025-02-24,Engineer 01,Network,40,29
+2025-02-24,Engineer 02,Network,40,45
+2025-02-24,Engineer 03,Infrastructure,40,38
+2025-02-24,Engineer 04,Power & Electrical,40,38
+2025-02-24,Engineer 05,Field Support,40,26
+2025-02-24,Engineer 06,Network,40,34
+2025-02-24,Engineer 07,Network,40,26
+2025-02-24,Engineer 08,Infrastructure,32,24
+2025-02-24,Engineer 09,Power & Electrical,40,36
+2025-02-24,Engineer 10,Field Support,40,44
+2025-02-24,Engineer 11,Network,40,31
+2025-02-24,Engineer 12,Network,40,37
+2025-02-24,Engineer 13,Infrastructure,40,33
+2025-02-24,Engineer 14,Power & Electrical,40,31
+2025-03-03,Engineer 01,Network,40,34
+2025-03-03,Engineer 02,Network,40,28
+2025-03-03,Engineer 03,Infrastructure,40,41
+2025-03-03,Engineer 04,Power & Electrical,40,46
+2025-03-03,Engineer 05,Field Support,32,30
+2025-03-03,Engineer 06,Network,40,37
+2025-03-03,Engineer 07,Network,40,32
+2025-03-03,Engineer 08,Infrastructure,40,29
+2025-03-03,Engineer 09,Power & Electrical,40,32
+2025-03-03,Engineer 10,Field Support,40,29
+2025-03-03,Engineer 11,Network,40,36
+2025-03-03,Engineer 12,Network,40,37
+2025-03-03,Engineer 13,Infrastructure,40,33
+2025-03-03,Engineer 14,Power & Electrical,40,27
+2025-03-10,Engineer 01,Network,40,23
+2025-03-10,Engineer 02,Network,40,46
+2025-03-10,Engineer 03,Infrastructure,40,36
+2025-03-10,Engineer 04,Power & Electrical,40,26
+2025-03-10,Engineer 05,Field Support,40,36
+2025-03-10,Engineer 06,Network,40,41
+2025-03-10,Engineer 07,Network,40,29
+2025-03-10,Engineer 08,Infrastructure,40,36
+2025-03-10,Engineer 09,Power & Electrical,40,33
+2025-03-10,Engineer 10,Field Support,40,31
+2025-03-10,Engineer 11,Network,40,41
+2025-03-10,Engineer 12,Network,40,24
+2025-03-10,Engineer 13,Infrastructure,40,34
+2025-03-10,Engineer 14,Power & Electrical,40,38
+2025-03-17,Engineer 01,Network,40,32
+2025-03-17,Engineer 02,Network,40,28
+2025-03-17,Engineer 03,Infrastructure,40,28
+2025-03-17,Engineer 04,Power & Electrical,40,46
+2025-03-17,Engineer 05,Field Support,40,30
+2025-03-17,Engineer 06,Network,40,32
+2025-03-17,Engineer 07,Network,40,34
+2025-03-17,Engineer 08,Infrastructure,40,35
+2025-03-17,Engineer 09,Power & Electrical,40,32
+2025-03-17,Engineer 10,Field Support,40,35
+2025-03-17,Engineer 11,Network,40,30
+2025-03-17,Engineer 12,Network,40,40
+2025-03-17,Engineer 13,Infrastructure,40,28
+2025-03-17,Engineer 14,Power & Electrical,40,33
+2025-03-24,Engineer 01,Network,40,37
+2025-03-24,Engineer 02,Network,40,33
+2025-03-24,Engineer 03,Infrastructure,40,28
+2025-03-24,Engineer 04,Power & Electrical,40,32
+2025-03-24,Engineer 05,Field Support,40,34
+2025-03-24,Engineer 06,Network,40,32
+2025-03-24,Engineer 07,Network,40,32
+2025-03-24,Engineer 08,Infrastructure,40,44
+2025-03-24,Engineer 09,Power & Electrical,40,35
+2025-03-24,Engineer 10,Field Support,40,27
+2025-03-24,Engineer 11,Network,40,46
+2025-03-24,Engineer 12,Network,40,34
+2025-03-24,Engineer 13,Infrastructure,40,36
+2025-03-24,Engineer 14,Power & Electrical,40,39
+2025-03-31,Engineer 01,Network,40,34
+2025-03-31,Engineer 02,Network,40,34
+2025-03-31,Engineer 03,Infrastructure,40,34
+2025-03-31,Engineer 04,Power & Electrical,40,41
+2025-03-31,Engineer 05,Field Support,40,38
+2025-03-31,Engineer 06,Network,40,34
+2025-03-31,Engineer 07,Network,40,39
+2025-03-31,Engineer 08,Infrastructure,40,39
+2025-03-31,Engineer 09,Power & Electrical,40,25
+2025-03-31,Engineer 10,Field Support,40,31
+2025-03-31,Engineer 11,Network,40,26
+2025-03-31,Engineer 12,Network,40,30
+2025-03-31,Engineer 13,Infrastructure,40,37
+2025-03-31,Engineer 14,Power & Electrical,40,36
+2025-04-07,Engineer 01,Network,40,37
+2025-04-07,Engineer 02,Network,40,32
+2025-04-07,Engineer 03,Infrastructure,40,40
+2025-04-07,Engineer 04,Power & Electrical,40,37
+2025-04-07,Engineer 05,Field Support,40,34
+2025-04-07,Engineer 06,Network,40,24
+2025-04-07,Engineer 07,Network,32,23
+2025-04-07,Engineer 08,Infrastructure,40,38
+2025-04-07,Engineer 09,Power & Electrical,40,30
+2025-04-07,Engineer 10,Field Support,40,34
+2025-04-07,Engineer 11,Network,40,31
+2025-04-07,Engineer 12,Network,40,32
+2025-04-07,Engineer 13,Infrastructure,40,33
+2025-04-07,Engineer 14,Power & Electrical,40,37
+2025-04-14,Engineer 01,Network,40,36
+2025-04-14,Engineer 02,Network,40,28
+2025-04-14,Engineer 03,Infrastructure,40,30
+2025-04-14,Engineer 04,Power & Electrical,40,41
+2025-04-14,Engineer 05,Field Support,40,33
+2025-04-14,Engineer 06,Network,40,40
+2025-04-14,Engineer 07,Network,40,35
+2025-04-14,Engineer 08,Infrastructure,40,29
+2025-04-14,Engineer 09,Power & Electrical,40,42
+2025-04-14,Engineer 10,Field Support,40,30
+2025-04-14,Engineer 11,Network,40,35
+2025-04-14,Engineer 12,Network,40,37
+2025-04-14,Engineer 13,Infrastructure,40,35
+2025-04-14,Engineer 14,Power & Electrical,40,40
+2025-04-21,Engineer 01,Network,40,39
+2025-04-21,Engineer 02,Network,40,25
+2025-04-21,Engineer 03,Infrastructure,40,36
+2025-04-21,Engineer 04,Power & Electrical,40,29
+2025-04-21,Engineer 05,Field Support,40,31
+2025-04-21,Engineer 06,Network,40,37
+2025-04-21,Engineer 07,Network,40,26
+2025-04-21,Engineer 08,Infrastructure,40,24
+2025-04-21,Engineer 09,Power & Electrical,40,36
+2025-04-21,Engineer 10,Field Support,40,40
+2025-04-21,Engineer 11,Network,40,41
+2025-04-21,Engineer 12,Network,40,26
+2025-04-21,Engineer 13,Infrastructure,32,27
+2025-04-21,Engineer 14,Power & Electrical,40,31
+2025-04-28,Engineer 01,Network,40,31
+2025-04-28,Engineer 02,Network,40,25
+2025-04-28,Engineer 03,Infrastructure,40,33
+2025-04-28,Engineer 04,Power & Electrical,40,37
+2025-04-28,Engineer 05,Field Support,40,34
+2025-04-28,Engineer 06,Network,40,21
+2025-04-28,Engineer 07,Network,40,36
+2025-04-28,Engineer 08,Infrastructure,40,36
+2025-04-28,Engineer 09,Power & Electrical,40,40
+2025-04-28,Engineer 10,Field Support,40,34
+2025-04-28,Engineer 11,Network,40,34
+2025-04-28,Engineer 12,Network,40,29
+2025-04-28,Engineer 13,Infrastructure,40,35
+2025-04-28,Engineer 14,Power & Electrical,40,28
+2025-05-05,Engineer 01,Network,40,37
+2025-05-05,Engineer 02,Network,40,27
+2025-05-05,Engineer 03,Infrastructure,40,44
+2025-05-05,Engineer 04,Power & Electrical,40,37
+2025-05-05,Engineer 05,Field Support,40,28
+2025-05-05,Engineer 06,Network,40,34
+2025-05-05,Engineer 07,Network,40,33
+2025-05-05,Engineer 08,Infrastructure,40,32
+2025-05-05,Engineer 09,Power & Electrical,40,33
+2025-05-05,Engineer 10,Field Support,32,31
+2025-05-05,Engineer 11,Network,40,37
+2025-05-05,Engineer 12,Network,40,31
+2025-05-05,Engineer 13,Infrastructure,40,38
+2025-05-05,Engineer 14,Power & Electrical,40,39
+2025-05-12,Engineer 01,Network,40,25
+2025-05-12,Engineer 02,Network,40,26
+2025-05-12,Engineer 03,Infrastructure,40,28
+2025-05-12,Engineer 04,Power & Electrical,40,34
+2025-05-12,Engineer 05,Field Support,40,39
+2025-05-12,Engineer 06,Network,40,26
+2025-05-12,Engineer 07,Network,40,33
+2025-05-12,Engineer 08,Infrastructure,40,38
+2025-05-12,Engineer 09,Power & Electrical,40,40
+2025-05-12,Engineer 10,Field Support,40,32
+2025-05-12,Engineer 11,Network,40,31
+2025-05-12,Engineer 12,Network,40,38
+2025-05-12,Engineer 13,Infrastructure,40,37
+2025-05-12,Engineer 14,Power & Electrical,40,37
+2025-05-19,Engineer 01,Network,40,26
+2025-05-19,Engineer 02,Network,40,37
+2025-05-19,Engineer 03,Infrastructure,40,29
+2025-05-19,Engineer 04,Power & Electrical,40,38
+2025-05-19,Engineer 05,Field Support,40,44
+2025-05-19,Engineer 06,Network,40,32
+2025-05-19,Engineer 07,Network,40,30
+2025-05-19,Engineer 08,Infrastructure,40,34
+2025-05-19,Engineer 09,Power & Electrical,40,36
+2025-05-19,Engineer 10,Field Support,40,24
+2025-05-19,Engineer 11,Network,40,32
+2025-05-19,Engineer 12,Network,40,34
+2025-05-19,Engineer 13,Infrastructure,40,39
+2025-05-19,Engineer 14,Power & Electrical,40,27
+2025-05-26,Engineer 01,Network,40,32
+2025-05-26,Engineer 02,Network,40,27
+2025-05-26,Engineer 03,Infrastructure,40,46
+2025-05-26,Engineer 04,Power & Electrical,40,43
+2025-05-26,Engineer 05,Field Support,40,26
+2025-05-26,Engineer 06,Network,40,22
+2025-05-26,Engineer 07,Network,40,36
+2025-05-26,Engineer 08,Infrastructure,40,29
+2025-05-26,Engineer 09,Power & Electrical,40,26
+2025-05-26,Engineer 10,Field Support,40,39
+2025-05-26,Engineer 11,Network,40,37
+2025-05-26,Engineer 12,Network,40,37
+2025-05-26,Engineer 13,Infrastructure,32,38
+2025-05-26,Engineer 14,Power & Electrical,40,31
+2025-06-02,Engineer 01,Network,40,38
+2025-06-02,Engineer 02,Network,40,32
+2025-06-02,Engineer 03,Infrastructure,40,39
+2025-06-02,Engineer 04,Power & Electrical,40,32
+2025-06-02,Engineer 05,Field Support,40,25
+2025-06-02,Engineer 06,Network,40,34
+2025-06-02,Engineer 07,Network,40,33
+2025-06-02,Engineer 08,Infrastructure,40,37
+2025-06-02,Engineer 09,Power & Electrical,40,35
+2025-06-02,Engineer 10,Field Support,40,27
+2025-06-02,Engineer 11,Network,40,37
+2025-06-02,Engineer 12,Network,32,29
+2025-06-02,Engineer 13,Infrastructure,40,32
+2025-06-02,Engineer 14,Power & Electrical,40,32
+2025-06-09,Engineer 01,Network,40,37
+2025-06-09,Engineer 02,Network,40,40
+2025-06-09,Engineer 03,Infrastructure,40,32
+2025-06-09,Engineer 04,Power & Electrical,40,31
+2025-06-09,Engineer 05,Field Support,40,34
+2025-06-09,Engineer 06,Network,40,35
+2025-06-09,Engineer 07,Network,40,40
+2025-06-09,Engineer 08,Infrastructure,40,33
+2025-06-09,Engineer 09,Power & Electrical,40,30
+2025-06-09,Engineer 10,Field Support,40,33
+2025-06-09,Engineer 11,Network,40,39
+2025-06-09,Engineer 12,Network,40,32
+2025-06-09,Engineer 13,Infrastructure,40,40
+2025-06-09,Engineer 14,Power & Electrical,40,27
+2025-06-16,Engineer 01,Network,40,38
+2025-06-16,Engineer 02,Network,40,43
+2025-06-16,Engineer 03,Infrastructure,40,26
+2025-06-16,Engineer 04,Power & Electrical,32,22
+2025-06-16,Engineer 05,Field Support,40,31
+2025-06-16,Engineer 06,Network,40,38
+2025-06-16,Engineer 07,Network,40,33
+2025-06-16,Engineer 08,Infrastructure,40,34
+2025-06-16,Engineer 09,Power & Electrical,40,29
+2025-06-16,Engineer 10,Field Support,40,42
+2025-06-16,Engineer 11,Network,40,34
+2025-06-16,Engineer 12,Network,40,36
+2025-06-16,Engineer 13,Infrastructure,40,34
+2025-06-16,Engineer 14,Power & Electrical,40,39
+2025-06-23,Engineer 01,Network,40,34
+2025-06-23,Engineer 02,Network,40,29
+2025-06-23,Engineer 03,Infrastructure,40,44
+2025-06-23,Engineer 04,Power & Electrical,40,32
+2025-06-23,Engineer 05,Field Support,40,33
+2025-06-23,Engineer 06,Network,40,35
+2025-06-23,Engineer 07,Network,40,34
+2025-06-23,Engineer 08,Infrastructure,40,34
+2025-06-23,Engineer 09,Power & Electrical,40,43
+2025-06-23,Engineer 10,Field Support,40,31
+2025-06-23,Engineer 11,Network,40,28
+2025-06-23,Engineer 12,Network,40,24
+2025-06-23,Engineer 13,Infrastructure,40,35
+2025-06-23,Engineer 14,Power & Electrical,40,13
+2025-06-30,Engineer 01,Network,40,32
+2025-06-30,Engineer 02,Network,40,39
+2025-06-30,Engineer 03,Infrastructure,40,36
+2025-06-30,Engineer 04,Power & Electrical,40,34
+2025-06-30,Engineer 05,Field Support,40,32
+2025-06-30,Engineer 06,Network,32,26
+2025-06-30,Engineer 07,Network,40,35
+2025-06-30,Engineer 08,Infrastructure,40,33
+2025-06-30,Engineer 09,Power & Electrical,40,33
+2025-06-30,Engineer 10,Field Support,40,38
+2025-06-30,Engineer 11,Network,40,35
+2025-06-30,Engineer 12,Network,40,38
+2025-06-30,Engineer 13,Infrastructure,40,46
+2025-06-30,Engineer 14,Power & Electrical,40,30
+2025-07-07,Engineer 01,Network,40,37
+2025-07-07,Engineer 02,Network,40,35
+2025-07-07,Engineer 03,Infrastructure,40,37
+2025-07-07,Engineer 04,Power & Electrical,40,43
+2025-07-07,Engineer 05,Field Support,40,29
+2025-07-07,Engineer 06,Network,40,37
+2025-07-07,Engineer 07,Network,40,34
+2025-07-07,Engineer 08,Infrastructure,40,31
+2025-07-07,Engineer 09,Power & Electrical,40,37
+2025-07-07,Engineer 10,Field Support,40,33
+2025-07-07,Engineer 11,Network,40,36
+2025-07-07,Engineer 12,Network,40,32
+2025-07-07,Engineer 13,Infrastructure,40,35
+2025-07-07,Engineer 14,Power & Electrical,40,29
+2025-07-14,Engineer 01,Network,32,28
+2025-07-14,Engineer 02,Network,40,40
+2025-07-14,Engineer 03,Infrastructure,40,42
+2025-07-14,Engineer 04,Power & Electrical,40,27
+2025-07-14,Engineer 05,Field Support,40,30
+2025-07-14,Engineer 06,Network,40,37
+2025-07-14,Engineer 07,Network,40,41
+2025-07-14,Engineer 08,Infrastructure,40,31
+2025-07-14,Engineer 09,Power & Electrical,40,33
+2025-07-14,Engineer 10,Field Support,40,39
+2025-07-14,Engineer 11,Network,40,34
+2025-07-14,Engineer 12,Network,40,31
+2025-07-14,Engineer 13,Infrastructure,40,33
+2025-07-14,Engineer 14,Power & Electrical,40,40
+2025-07-21,Engineer 01,Network,40,35
+2025-07-21,Engineer 02,Network,40,34
+2025-07-21,Engineer 03,Infrastructure,40,25
+2025-07-21,Engineer 04,Power & Electrical,32,30
+2025-07-21,Engineer 05,Field Support,40,32
+2025-07-21,Engineer 06,Network,40,30
+2025-07-21,Engineer 07,Network,40,38
+2025-07-21,Engineer 08,Infrastructure,40,36
+2025-07-21,Engineer 09,Power & Electrical,40,34
+2025-07-21,Engineer 10,Field Support,40,25
+2025-07-21,Engineer 11,Network,40,39
+2025-07-21,Engineer 12,Network,40,31
+2025-07-21,Engineer 13,Infrastructure,40,30
+2025-07-21,Engineer 14,Power & Electrical,40,41
+2025-07-28,Engineer 01,Network,40,28
+2025-07-28,Engineer 02,Network,40,30
+2025-07-28,Engineer 03,Infrastructure,32,28
+2025-07-28,Engineer 04,Power & Electrical,40,32
+2025-07-28,Engineer 05,Field Support,40,35
+2025-07-28,Engineer 06,Network,40,27
+2025-07-28,Engineer 07,Network,40,36
+2025-07-28,Engineer 08,Infrastructure,40,40
+2025-07-28,Engineer 09,Power & Electrical,40,41
+2025-07-28,Engineer 10,Field Support,40,32
+2025-07-28,Engineer 11,Network,40,41
+2025-07-28,Engineer 12,Network,40,32
+2025-07-28,Engineer 13,Infrastructure,40,29
+2025-07-28,Engineer 14,Power & Electrical,40,35
+2025-08-04,Engineer 01,Network,40,28
+2025-08-04,Engineer 02,Network,40,19
+2025-08-04,Engineer 03,Infrastructure,40,35
+2025-08-04,Engineer 04,Power & Electrical,40,33
+2025-08-04,Engineer 05,Field Support,40,34
+2025-08-04,Engineer 06,Network,40,31
+2025-08-04,Engineer 07,Network,40,42
+2025-08-04,Engineer 08,Infrastructure,40,29
+2025-08-04,Engineer 09,Power & Electrical,40,33
+2025-08-04,Engineer 10,Field Support,40,34
+2025-08-04,Engineer 11,Network,40,39
+2025-08-04,Engineer 12,Network,40,34
+2025-08-04,Engineer 13,Infrastructure,40,40
+2025-08-04,Engineer 14,Power & Electrical,40,25
+2025-08-11,Engineer 01,Network,40,37
+2025-08-11,Engineer 02,Network,40,41
+2025-08-11,Engineer 03,Infrastructure,40,38
+2025-08-11,Engineer 04,Power & Electrical,40,41
+2025-08-11,Engineer 05,Field Support,40,32
+2025-08-11,Engineer 06,Network,40,32
+2025-08-11,Engineer 07,Network,40,37
+2025-08-11,Engineer 08,Infrastructure,40,39
+2025-08-11,Engineer 09,Power & Electrical,32,32
+2025-08-11,Engineer 10,Field Support,40,33
+2025-08-11,Engineer 11,Network,40,32
+2025-08-11,Engineer 12,Network,40,36
+2025-08-11,Engineer 13,Infrastructure,40,27
+2025-08-11,Engineer 14,Power & Electrical,40,35
+2025-08-18,Engineer 01,Network,40,32
+2025-08-18,Engineer 02,Network,40,31
+2025-08-18,Engineer 03,Infrastructure,40,39
+2025-08-18,Engineer 04,Power & Electrical,40,40
+2025-08-18,Engineer 05,Field Support,40,30
+2025-08-18,Engineer 06,Network,40,31
+2025-08-18,Engineer 07,Network,40,38
+2025-08-18,Engineer 08,Infrastructure,40,37
+2025-08-18,Engineer 09,Power & Electrical,40,33
+2025-08-18,Engineer 10,Field Support,40,36
+2025-08-18,Engineer 11,Network,40,41
+2025-08-18,Engineer 12,Network,40,38
+2025-08-18,Engineer 13,Infrastructure,40,37
+2025-08-18,Engineer 14,Power & Electrical,40,36
+2025-08-25,Engineer 01,Network,40,23
+2025-08-25,Engineer 02,Network,40,32
+2025-08-25,Engineer 03,Infrastructure,40,32
+2025-08-25,Engineer 04,Power & Electrical,40,35
+2025-08-25,Engineer 05,Field Support,40,19
+2025-08-25,Engineer 06,Network,40,39
+2025-08-25,Engineer 07,Network,40,34
+2025-08-25,Engineer 08,Infrastructure,40,28
+2025-08-25,Engineer 09,Power & Electrical,40,34
+2025-08-25,Engineer 10,Field Support,40,33
+2025-08-25,Engineer 11,Network,40,30
+2025-08-25,Engineer 12,Network,40,41
+2025-08-25,Engineer 13,Infrastructure,40,36
+2025-08-25,Engineer 14,Power & Electrical,40,28
+2025-09-01,Engineer 01,Network,40,43
+2025-09-01,Engineer 02,Network,40,29
+2025-09-01,Engineer 03,Infrastructure,40,37
+2025-09-01,Engineer 04,Power & Electrical,40,30
+2025-09-01,Engineer 05,Field Support,40,32
+2025-09-01,Engineer 06,Network,32,30
+2025-09-01,Engineer 07,Network,40,36
+2025-09-01,Engineer 08,Infrastructure,32,34
+2025-09-01,Engineer 09,Power & Electrical,40,32
+2025-09-01,Engineer 10,Field Support,40,37
+2025-09-01,Engineer 11,Network,40,42
+2025-09-01,Engineer 12,Network,40,30
+2025-09-01,Engineer 13,Infrastructure,40,35
+2025-09-01,Engineer 14,Power & Electrical,40,37
+2025-09-08,Engineer 01,Network,40,24
+2025-09-08,Engineer 02,Network,40,35
+2025-09-08,Engineer 03,Infrastructure,40,30
+2025-09-08,Engineer 04,Power & Electrical,40,33
+2025-09-08,Engineer 05,Field Support,40,34
+2025-09-08,Engineer 06,Network,40,30
+2025-09-08,Engineer 07,Network,40,35
+2025-09-08,Engineer 08,Infrastructure,40,34
+2025-09-08,Engineer 09,Power & Electrical,40,29
+2025-09-08,Engineer 10,Field Support,32,23
+2025-09-08,Engineer 11,Network,40,31
+2025-09-08,Engineer 12,Network,40,33
+2025-09-08,Engineer 13,Infrastructure,40,32
+2025-09-08,Engineer 14,Power & Electrical,40,36
+2025-09-15,Engineer 01,Network,32,31
+2025-09-15,Engineer 02,Network,40,32
+2025-09-15,Engineer 03,Infrastructure,40,33
+2025-09-15,Engineer 04,Power & Electrical,40,35
+2025-09-15,Engineer 05,Field Support,40,35
+2025-09-15,Engineer 06,Network,40,25
+2025-09-15,Engineer 07,Network,40,41
+2025-09-15,Engineer 08,Infrastructure,40,25
+2025-09-15,Engineer 09,Power & Electrical,40,39
+2025-09-15,Engineer 10,Field Support,40,38
+2025-09-15,Engineer 11,Network,40,43
+2025-09-15,Engineer 12,Network,40,28
+2025-09-15,Engineer 13,Infrastructure,40,34
+2025-09-15,Engineer 14,Power & Electrical,40,30
+2025-09-22,Engineer 01,Network,40,35
+2025-09-22,Engineer 02,Network,40,35
+2025-09-22,Engineer 03,Infrastructure,40,41
+2025-09-22,Engineer 04,Power & Electrical,40,29
+2025-09-22,Engineer 05,Field Support,40,32
+2025-09-22,Engineer 06,Network,40,39
+2025-09-22,Engineer 07,Network,40,33
+2025-09-22,Engineer 08,Infrastructure,40,35
+2025-09-22,Engineer 09,Power & Electrical,40,32
+2025-09-22,Engineer 10,Field Support,40,36
+2025-09-22,Engineer 11,Network,40,32
+2025-09-22,Engineer 12,Network,40,25
+2025-09-22,Engineer 13,Infrastructure,40,38
+2025-09-22,Engineer 14,Power & Electrical,40,31
+2025-09-29,Engineer 01,Network,40,38
+2025-09-29,Engineer 02,Network,40,35
+2025-09-29,Engineer 03,Infrastructure,40,37
+2025-09-29,Engineer 04,Power & Electrical,40,32
+2025-09-29,Engineer 05,Field Support,40,29
+2025-09-29,Engineer 06,Network,40,27
+2025-09-29,Engineer 07,Network,40,37
+2025-09-29,Engineer 08,Infrastructure,40,38
+2025-09-29,Engineer 09,Power & Electrical,40,28
+2025-09-29,Engineer 10,Field Support,32,25
+2025-09-29,Engineer 11,Network,40,34
+2025-09-29,Engineer 12,Network,40,38
+2025-09-29,Engineer 13,Infrastructure,40,41
+2025-09-29,Engineer 14,Power & Electrical,40,39
+2025-10-06,Engineer 01,Network,40,26
+2025-10-06,Engineer 02,Network,40,35
+2025-10-06,Engineer 03,Infrastructure,40,46
+2025-10-06,Engineer 04,Power & Electrical,40,40
+2025-10-06,Engineer 05,Field Support,40,29
+2025-10-06,Engineer 06,Network,40,35
+2025-10-06,Engineer 07,Network,32,20
+2025-10-06,Engineer 08,Infrastructure,40,42
+2025-10-06,Engineer 09,Power & Electrical,40,29
+2025-10-06,Engineer 10,Field Support,40,43
+2025-10-06,Engineer 11,Network,40,46
+2025-10-06,Engineer 12,Network,40,36
+2025-10-06,Engineer 13,Infrastructure,40,39
+2025-10-06,Engineer 14,Power & Electrical,40,29
+2025-10-13,Engineer 01,Network,40,30
+2025-10-13,Engineer 02,Network,40,28
+2025-10-13,Engineer 03,Infrastructure,40,37
+2025-10-13,Engineer 04,Power & Electrical,40,32
+2025-10-13,Engineer 05,Field Support,40,29
+2025-10-13,Engineer 06,Network,40,40
+2025-10-13,Engineer 07,Network,40,35
+2025-10-13,Engineer 08,Infrastructure,40,33
+2025-10-13,Engineer 09,Power & Electrical,40,35
+2025-10-13,Engineer 10,Field Support,40,28
+2025-10-13,Engineer 11,Network,32,27
+2025-10-13,Engineer 12,Network,40,37
+2025-10-13,Engineer 13,Infrastructure,40,40
+2025-10-13,Engineer 14,Power & Electrical,40,28
+2025-10-20,Engineer 01,Network,40,43
+2025-10-20,Engineer 02,Network,32,27
+2025-10-20,Engineer 03,Infrastructure,40,33
+2025-10-20,Engineer 04,Power & Electrical,40,34
+2025-10-20,Engineer 05,Field Support,40,30
+2025-10-20,Engineer 06,Network,40,32
+2025-10-20,Engineer 07,Network,32,31
+2025-10-20,Engineer 08,Infrastructure,40,41
+2025-10-20,Engineer 09,Power & Electrical,40,25
+2025-10-20,Engineer 10,Field Support,40,42
+2025-10-20,Engineer 11,Network,40,33
+2025-10-20,Engineer 12,Network,40,40
+2025-10-20,Engineer 13,Infrastructure,40,35
+2025-10-20,Engineer 14,Power & Electrical,40,44
+2025-10-27,Engineer 01,Network,40,37
+2025-10-27,Engineer 02,Network,40,41
+2025-10-27,Engineer 03,Infrastructure,40,27
+2025-10-27,Engineer 04,Power & Electrical,40,39
+2025-10-27,Engineer 05,Field Support,40,26
+2025-10-27,Engineer 06,Network,32,30
+2025-10-27,Engineer 07,Network,40,36
+2025-10-27,Engineer 08,Infrastructure,40,32
+2025-10-27,Engineer 09,Power & Electrical,40,37
+2025-10-27,Engineer 10,Field Support,40,40
+2025-10-27,Engineer 11,Network,40,39
+2025-10-27,Engineer 12,Network,40,40
+2025-10-27,Engineer 13,Infrastructure,40,46
+2025-10-27,Engineer 14,Power & Electrical,40,36
+2025-11-03,Engineer 01,Network,40,30
+2025-11-03,Engineer 02,Network,40,35
+2025-11-03,Engineer 03,Infrastructure,40,40
+2025-11-03,Engineer 04,Power & Electrical,40,28
+2025-11-03,Engineer 05,Field Support,40,32
+2025-11-03,Engineer 06,Network,40,26
+2025-11-03,Engineer 07,Network,40,28
+2025-11-03,Engineer 08,Infrastructure,40,33
+2025-11-03,Engineer 09,Power & Electrical,40,40
+2025-11-03,Engineer 10,Field Support,40,34
+2025-11-03,Engineer 11,Network,40,25
+2025-11-03,Engineer 12,Network,32,28
+2025-11-03,Engineer 13,Infrastructure,40,30
+2025-11-03,Engineer 14,Power & Electrical,40,44
+2025-11-10,Engineer 01,Network,40,42
+2025-11-10,Engineer 02,Network,40,32
+2025-11-10,Engineer 03,Infrastructure,32,30
+2025-11-10,Engineer 04,Power & Electrical,40,26
+2025-11-10,Engineer 05,Field Support,40,30
+2025-11-10,Engineer 06,Network,40,45
+2025-11-10,Engineer 07,Network,40,28
+2025-11-10,Engineer 08,Infrastructure,40,28
+2025-11-10,Engineer 09,Power & Electrical,40,29
+2025-11-10,Engineer 10,Field Support,40,34
+2025-11-10,Engineer 11,Network,40,43
+2025-11-10,Engineer 12,Network,40,38
+2025-11-10,Engineer 13,Infrastructure,40,34
+2025-11-10,Engineer 14,Power & Electrical,40,33
+2025-11-17,Engineer 01,Network,40,37
+2025-11-17,Engineer 02,Network,40,37
+2025-11-17,Engineer 03,Infrastructure,40,35
+2025-11-17,Engineer 04,Power & Electrical,40,31
+2025-11-17,Engineer 05,Field Support,40,38
+2025-11-17,Engineer 06,Network,40,38
+2025-11-17,Engineer 07,Network,40,31
+2025-11-17,Engineer 08,Infrastructure,40,42
+2025-11-17,Engineer 09,Power & Electrical,40,30
+2025-11-17,Engineer 10,Field Support,40,46
+2025-11-17,Engineer 11,Network,40,34
+2025-11-17,Engineer 12,Network,40,31
+2025-11-17,Engineer 13,Infrastructure,40,41
+2025-11-17,Engineer 14,Power & Electrical,40,29
+2025-11-24,Engineer 01,Network,40,34
+2025-11-24,Engineer 02,Network,40,35
+2025-11-24,Engineer 03,Infrastructure,40,38
+2025-11-24,Engineer 04,Power & Electrical,40,32
+2025-11-24,Engineer 05,Field Support,40,32
+2025-11-24,Engineer 06,Network,40,39
+2025-11-24,Engineer 07,Network,40,41
+2025-11-24,Engineer 08,Infrastructure,40,34
+2025-11-24,Engineer 09,Power & Electrical,40,38
+2025-11-24,Engineer 10,Field Support,40,30
+2025-11-24,Engineer 11,Network,40,44
+2025-11-24,Engineer 12,Network,40,30
+2025-11-24,Engineer 13,Infrastructure,40,33
+2025-11-24,Engineer 14,Power & Electrical,40,37
+2025-12-01,Engineer 01,Network,40,24
+2025-12-01,Engineer 02,Network,40,25
+2025-12-01,Engineer 03,Infrastructure,40,39
+2025-12-01,Engineer 04,Power & Electrical,40,31
+2025-12-01,Engineer 05,Field Support,40,30
+2025-12-01,Engineer 06,Network,32,34
+2025-12-01,Engineer 07,Network,32,35
+2025-12-01,Engineer 08,Infrastructure,40,26
+2025-12-01,Engineer 09,Power & Electrical,40,35
+2025-12-01,Engineer 10,Field Support,40,39
+2025-12-01,Engineer 11,Network,40,41
+2025-12-01,Engineer 12,Network,40,35
+2025-12-01,Engineer 13,Infrastructure,40,38
+2025-12-01,Engineer 14,Power & Electrical,40,36
+2025-12-08,Engineer 01,Network,40,32
+2025-12-08,Engineer 02,Network,40,29
+2025-12-08,Engineer 03,Infrastructure,40,36
+2025-12-08,Engineer 04,Power & Electrical,40,35
+2025-12-08,Engineer 05,Field Support,40,41
+2025-12-08,Engineer 06,Network,32,16
+2025-12-08,Engineer 07,Network,40,39
+2025-12-08,Engineer 08,Infrastructure,40,26
+2025-12-08,Engineer 09,Power & Electrical,40,39
+2025-12-08,Engineer 10,Field Support,40,44
+2025-12-08,Engineer 11,Network,40,33
+2025-12-08,Engineer 12,Network,32,22
+2025-12-08,Engineer 13,Infrastructure,40,36
+2025-12-08,Engineer 14,Power & Electrical,40,33
+2025-12-15,Engineer 01,Network,40,34
+2025-12-15,Engineer 02,Network,40,29
+2025-12-15,Engineer 03,Infrastructure,40,36
+2025-12-15,Engineer 04,Power & Electrical,40,45
+2025-12-15,Engineer 05,Field Support,40,40
+2025-12-15,Engineer 06,Network,40,32
+2025-12-15,Engineer 07,Network,40,32
+2025-12-15,Engineer 08,Infrastructure,40,27
+2025-12-15,Engineer 09,Power & Electrical,40,28
+2025-12-15,Engineer 10,Field Support,40,38
+2025-12-15,Engineer 11,Network,40,29
+2025-12-15,Engineer 12,Network,40,36
+2025-12-15,Engineer 13,Infrastructure,40,34
+2025-12-15,Engineer 14,Power & Electrical,40,32
+2025-12-22,Engineer 01,Network,40,30
+2025-12-22,Engineer 02,Network,40,29
+2025-12-22,Engineer 03,Infrastructure,40,33
+2025-12-22,Engineer 04,Power & Electrical,40,33
+2025-12-22,Engineer 05,Field Support,40,40
+2025-12-22,Engineer 06,Network,40,32
+2025-12-22,Engineer 07,Network,40,38
+2025-12-22,Engineer 08,Infrastructure,40,35
+2025-12-22,Engineer 09,Power & Electrical,40,38
+2025-12-22,Engineer 10,Field Support,40,38
+2025-12-22,Engineer 11,Network,40,33
+2025-12-22,Engineer 12,Network,40,44
+2025-12-22,Engineer 13,Infrastructure,40,29
+2025-12-22,Engineer 14,Power & Electrical,40,34
+2025-12-29,Engineer 01,Network,40,31
+2025-12-29,Engineer 02,Network,40,26
+2025-12-29,Engineer 03,Infrastructure,40,41
+2025-12-29,Engineer 04,Power & Electrical,40,39
+2025-12-29,Engineer 05,Field Support,40,31
+2025-12-29,Engineer 06,Network,40,35
+2025-12-29,Engineer 07,Network,40,31
+2025-12-29,Engineer 08,Infrastructure,40,28
+2025-12-29,Engineer 09,Power & Electrical,40,32
+2025-12-29,Engineer 10,Field Support,40,39
+2025-12-29,Engineer 11,Network,40,33
+2025-12-29,Engineer 12,Network,40,36
+2025-12-29,Engineer 13,Infrastructure,40,34
+2025-12-29,Engineer 14,Power & Electrical,40,42

@@ -1,0 +1,29 @@
+{
+  "kpis": [
+    {
+      "label": "Network availability",
+      "value": "99.70%",
+      "note": "All sites · SLA 99.5%"
+    },
+    {
+      "label": "Devices healthy",
+      "value": "86 / 95",
+      "note": "2 critical"
+    },
+    {
+      "label": "Incidents",
+      "value": "101",
+      "note": "12 P1 · 51 P2"
+    },
+    {
+      "label": "Mean time to restore",
+      "value": "102 min",
+      "note": "Opened → resolved"
+    },
+    {
+      "label": "Avg link utilisation",
+      "value": "38%",
+      "note": "Of provisioned capacity"
+    }
+  ]
+}

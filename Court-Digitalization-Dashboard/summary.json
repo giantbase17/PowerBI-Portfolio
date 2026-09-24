@@ -1,0 +1,29 @@
+{
+  "kpis": [
+    {
+      "label": "Hearings held",
+      "value": "8,139",
+      "note": "3 courts · 15 courtrooms"
+    },
+    {
+      "label": "Virtual & hybrid share",
+      "value": "27.6%",
+      "note": "December: 54.8%"
+    },
+    {
+      "label": "Tech issue rate",
+      "value": "11.0%",
+      "note": "Of virtual & hybrid hearings"
+    },
+    {
+      "label": "Adjournment rate",
+      "value": "23.4%",
+      "note": "Virtual 18.4% · In-person 25.2%"
+    },
+    {
+      "label": "Minutes lost to tech",
+      "value": "5,107",
+      "note": "21 min per issue"
+    }
+  ]
+}

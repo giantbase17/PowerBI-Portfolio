@@ -1,0 +1,96 @@
+DeviceID,SiteID,DeviceType,Vendor,Status
+DEV-0001,S1,Router,MikroTik,Healthy
+DEV-0002,S1,Router,MikroTik,Healthy
+DEV-0003,S1,Core Switch,Cisco,Healthy
+DEV-0004,S1,Core Switch,Cisco,Healthy
+DEV-0005,S1,Access Switch,Cisco,Healthy
+DEV-0006,S1,Access Switch,Cisco,Healthy
+DEV-0007,S1,Access Switch,Cisco,Healthy
+DEV-0008,S1,Access Switch,Cisco,Healthy
+DEV-0009,S1,Access Switch,Cisco,Healthy
+DEV-0010,S1,Access Switch,Cisco,Healthy
+DEV-0011,S1,Access Switch,Cisco,Healthy
+DEV-0012,S1,Access Switch,Cisco,Healthy
+DEV-0013,S1,Access Point,Ubiquiti,Healthy
+DEV-0014,S1,Access Point,Ubiquiti,Warning
+DEV-0015,S1,Access Point,Ubiquiti,Healthy
+DEV-0016,S1,Access Point,Ubiquiti,Healthy
+DEV-0017,S1,Access Point,Ubiquiti,Healthy
+DEV-0018,S1,Access Point,Ubiquiti,Healthy
+DEV-0019,S1,Access Point,Ubiquiti,Healthy
+DEV-0020,S1,Access Point,Ubiquiti,Healthy
+DEV-0021,S1,Access Point,Ubiquiti,Healthy
+DEV-0022,S1,Access Point,Ubiquiti,Healthy
+DEV-0023,S1,Access Point,Ubiquiti,Healthy
+DEV-0024,S1,Access Point,Ubiquiti,Healthy
+DEV-0025,S1,Access Point,Ubiquiti,Healthy
+DEV-0026,S1,Access Point,Ubiquiti,Healthy
+DEV-0027,S1,Access Point,Ubiquiti,Healthy
+DEV-0028,S1,Access Point,Ubiquiti,Healthy
+DEV-0029,S1,Firewall,Cisco,Healthy
+DEV-0030,S1,Firewall,Cisco,Healthy
+DEV-0031,S1,NVR,Hikvision,Healthy
+DEV-0032,S1,NVR,Hikvision,Healthy
+DEV-0033,S1,UPS,APC,Healthy
+DEV-0034,S1,UPS,APC,Warning
+DEV-0035,S1,UPS,APC,Healthy
+DEV-0036,S1,UPS,APC,Healthy
+DEV-0037,S2,Router,MikroTik,Healthy
+DEV-0038,S2,Core Switch,Cisco,Healthy
+DEV-0039,S2,Access Switch,Cisco,Healthy
+DEV-0040,S2,Access Switch,Cisco,Healthy
+DEV-0041,S2,Access Switch,Cisco,Healthy
+DEV-0042,S2,Access Switch,Cisco,Healthy
+DEV-0043,S2,Access Point,Ubiquiti,Healthy
+DEV-0044,S2,Access Point,Ubiquiti,Healthy
+DEV-0045,S2,Access Point,Ubiquiti,Healthy
+DEV-0046,S2,Access Point,Ubiquiti,Healthy
+DEV-0047,S2,Access Point,Ubiquiti,Healthy
+DEV-0048,S2,Access Point,Ubiquiti,Healthy
+DEV-0049,S2,Access Point,Ubiquiti,Healthy
+DEV-0050,S2,Access Point,Ubiquiti,Warning
+DEV-0051,S2,Firewall,Cisco,Critical
+DEV-0052,S2,NVR,Hikvision,Healthy
+DEV-0053,S2,UPS,APC,Healthy
+DEV-0054,S2,UPS,APC,Healthy
+DEV-0055,S3,Router,MikroTik,Healthy
+DEV-0056,S3,Core Switch,Cisco,Healthy
+DEV-0057,S3,Access Switch,Cisco,Warning
+DEV-0058,S3,Access Switch,Cisco,Healthy
+DEV-0059,S3,Access Point,Ubiquiti,Healthy
+DEV-0060,S3,Access Point,Ubiquiti,Healthy
+DEV-0061,S3,Access Point,Ubiquiti,Healthy
+DEV-0062,S3,Access Point,Ubiquiti,Healthy
+DEV-0063,S3,Access Point,Ubiquiti,Healthy
+DEV-0064,S3,Firewall,Cisco,Healthy
+DEV-0065,S3,NVR,Hikvision,Healthy
+DEV-0066,S3,UPS,APC,Warning
+DEV-0067,S4,Router,MikroTik,Healthy
+DEV-0068,S4,Core Switch,Cisco,Warning
+DEV-0069,S4,Access Switch,Cisco,Healthy
+DEV-0070,S4,Access Switch,Cisco,Healthy
+DEV-0071,S4,Access Point,Ubiquiti,Healthy
+DEV-0072,S4,Access Point,Ubiquiti,Healthy
+DEV-0073,S4,Access Point,Ubiquiti,Healthy
+DEV-0074,S4,Firewall,Cisco,Healthy
+DEV-0075,S4,NVR,Hikvision,Healthy
+DEV-0076,S4,UPS,APC,Healthy
+DEV-0077,S5,Router,MikroTik,Healthy
+DEV-0078,S5,Core Switch,Cisco,Healthy
+DEV-0079,S5,Access Switch,Cisco,Warning
+DEV-0080,S5,Access Switch,Cisco,Critical
+DEV-0081,S5,Access Point,Ubiquiti,Healthy
+DEV-0082,S5,Access Point,Ubiquiti,Healthy
+DEV-0083,S5,Access Point,Ubiquiti,Healthy
+DEV-0084,S5,Access Point,Ubiquiti,Healthy
+DEV-0085,S5,Firewall,Cisco,Healthy
+DEV-0086,S5,NVR,Hikvision,Healthy
+DEV-0087,S5,UPS,APC,Healthy
+DEV-0088,S6,Router,MikroTik,Healthy
+DEV-0089,S6,Core Switch,Cisco,Healthy
+DEV-0090,S6,Access Switch,Cisco,Healthy
+DEV-0091,S6,Access Point,Ubiquiti,Healthy
+DEV-0092,S6,Access Point,Ubiquiti,Healthy
+DEV-0093,S6,Firewall,Cisco,Healthy
+DEV-0094,S6,NVR,Hikvision,Healthy
+DEV-0095,S6,UPS,APC,Healthy

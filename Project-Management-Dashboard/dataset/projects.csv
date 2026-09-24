@@ -1,0 +1,13 @@
+ProjectID,ProjectName,Sector,ProjectManager,StartDate,PlannedEndDate,BudgetNGN,SpentNGN,PercentComplete,Status
+PRJ-001,Court Network Upgrade – Site A,Judiciary,PM 02,2025-02-28,2025-08-06,15000000,13992000,100,Completed
+PRJ-002,Virtual Hearing Rooms – Site B,Judiciary,PM 02,2025-05-09,2025-08-08,31000000,31829545,100,Completed
+PRJ-003,Ministry LAN Refresh,Government,PM 03,2025-02-17,2025-06-09,55000000,64421255,100,Completed
+PRJ-004,Retail Wi-Fi Rollout – 6 Stores,Retail,PM 03,2025-02-25,2025-08-12,45000000,41619006,100,Completed
+PRJ-005,CCTV Expansion – Warehouse,Commercial,PM 02,2025-05-04,2025-09-03,38000000,35718953,100,Completed
+PRJ-006,Starlink Backhaul – Rural Sites,Telecom,PM 01,2025-11-08,2026-04-05,43000000,17693259,36,At Risk
+PRJ-007,Structured Cabling – Office Tower,Commercial,PM 01,2025-08-20,2025-12-19,28000000,29850309,100,Completed
+PRJ-008,Solar Backup – Branch Offices,Commercial,PM 03,2025-08-17,2026-01-20,40000000,32429102,87,On Track
+PRJ-009,Data Centre Rack Migration,Enterprise,PM 02,2025-08-10,2025-10-24,34000000,34487511,100,Completed
+PRJ-010,Access Control – Head Office,Enterprise,PM 02,2025-11-07,2026-01-23,56000000,42313794,70,At Risk
+PRJ-011,Court Records Digitisation Support,Judiciary,PM 02,2025-10-02,2026-03-11,13000000,7035945,56,On Track
+PRJ-012,Campus Fibre Link,Education,PM 02,2025-11-09,2026-03-23,48000000,18006093,39,On Track

@@ -1,0 +1,7 @@
+SiteID,Site,PrimaryLink,CapacityMbps
+S1,Site A – Head Office,Fibre,1000
+S2,Site B – Court Complex,Fibre,500
+S3,Site C – Ministry Annex,Fibre,300
+S4,Site D – Branch Office,Microwave,200
+S5,Site E – Warehouse,Starlink,220
+S6,Site F – Rural Outpost,Starlink,150

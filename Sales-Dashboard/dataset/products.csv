@@ -1,0 +1,13 @@
+ProductID,Product,Category,UnitCostNGN,ListPriceNGN
+P001,Fibre Router,Networking,42000,65000
+P002,Wi-Fi Access Point,Networking,38000,59000
+P003,24-Port Switch,Networking,95000,140000
+P004,IP Camera (4MP),Security,28000,47000
+P005,NVR 16-Channel,Security,120000,180000
+P006,Access Control Kit,Security,85000,130000
+P007,Solar Panel 450W,Power,70000,98000
+P008,Inverter 5kVA,Power,310000,420000
+P009,Lithium Battery 5kWh,Power,520000,690000
+P010,Cat6 Cable (305m),Cabling,48000,72000
+P011,Patch Panel 24-Port,Cabling,16000,27000
+P012,Server Rack 42U,Cabling,230000,320000

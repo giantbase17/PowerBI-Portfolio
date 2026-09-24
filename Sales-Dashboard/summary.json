@@ -1,0 +1,44 @@
+{
+  "kpis": [
+    {
+      "label": "Revenue",
+      "value": "₦1.83B",
+      "note": "H2 vs H1 +12.8%"
+    },
+    {
+      "label": "Gross profit",
+      "value": "₦486.9M",
+      "note": "Revenue − cost of goods"
+    },
+    {
+      "label": "Gross margin",
+      "value": "26.5%",
+      "note": "After discounts"
+    },
+    {
+      "label": "Orders",
+      "value": "3,926",
+      "note": "420 customers"
+    },
+    {
+      "label": "Avg order value",
+      "value": "₦467K",
+      "note": "Revenue ÷ orders"
+    }
+  ],
+  "topCategory": {
+    "label": "Power",
+    "value": 722515740,
+    "margin": 0.21539425563241016
+  },
+  "topRegion": {
+    "label": "South West",
+    "value": 597700650
+  },
+  "topProduct": {
+    "label": "Lithium Battery 5kWh",
+    "value": 323361600,
+    "units": 497,
+    "margin": 0.20077090167787393
+  }
+}

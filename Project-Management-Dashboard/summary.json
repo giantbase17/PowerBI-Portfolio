@@ -1,0 +1,29 @@
+{
+  "kpis": [
+    {
+      "label": "Projects in portfolio",
+      "value": "12",
+      "note": "5 active · 7 completed"
+    },
+    {
+      "label": "At risk",
+      "value": "2",
+      "note": "0 on watch"
+    },
+    {
+      "label": "Milestones on time",
+      "value": "50%",
+      "note": "56 of 72 completed"
+    },
+    {
+      "label": "Budget used",
+      "value": "83%",
+      "note": "₦369.4M of ₦446.0M"
+    },
+    {
+      "label": "Team utilisation",
+      "value": "85%",
+      "note": "Allocated ÷ available hours"
+    }
+  ]
+}

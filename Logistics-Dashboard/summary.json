@@ -1,0 +1,43 @@
+{
+  "kpis": [
+    {
+      "label": "Total shipments",
+      "value": "3,303",
+      "note": "Jan–Dec 2025"
+    },
+    {
+      "label": "On-time delivery",
+      "value": "88.2%",
+      "note": "Target 85%"
+    },
+    {
+      "label": "Avg transit time",
+      "value": "1.73 days",
+      "note": "Promised 1.50 days"
+    },
+    {
+      "label": "Freight cost",
+      "value": "₦1.60B",
+      "note": "₦266 per kg"
+    },
+    {
+      "label": "Tonnage moved",
+      "value": "6,021 t",
+      "note": "1,823 kg avg load"
+    }
+  ],
+  "worstRoute": {
+    "label": "Lagos → Kano",
+    "value": 70.32967032967034,
+    "n": 182,
+    "km": 1042,
+    "cost": 215425842
+  },
+  "bestRoute": {
+    "label": "Lagos → Ibadan",
+    "value": 95.07829977628636,
+    "n": 447,
+    "km": 142,
+    "cost": 78379272
+  }
+}

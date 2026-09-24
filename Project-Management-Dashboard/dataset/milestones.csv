@@ -1,0 +1,73 @@
+ProjectID,Milestone,PlannedDate,ActualDate,Status
+PRJ-001,Site Survey,2025-03-27,2025-03-29,Completed
+PRJ-001,Design Approved,2025-04-22,2025-04-22,Completed
+PRJ-001,Procurement,2025-05-19,2025-05-18,Completed
+PRJ-001,Installation,2025-06-14,2025-06-13,Completed
+PRJ-001,Testing & Commissioning,2025-07-11,2025-07-14,Completed Late
+PRJ-001,Handover & Training,2025-08-06,2025-08-04,Completed
+PRJ-002,Site Survey,2025-05-24,2025-05-28,Completed Late
+PRJ-002,Design Approved,2025-06-08,2025-06-13,Completed Late
+PRJ-002,Procurement,2025-06-24,2025-06-26,Completed
+PRJ-002,Installation,2025-07-09,2025-07-12,Completed Late
+PRJ-002,Testing & Commissioning,2025-07-24,2025-07-28,Completed Late
+PRJ-002,Handover & Training,2025-08-08,2025-08-10,Completed
+PRJ-003,Site Survey,2025-03-08,2025-03-14,Completed Late
+PRJ-003,Design Approved,2025-03-26,2025-04-02,Completed Late
+PRJ-003,Procurement,2025-04-14,2025-04-24,Completed Late
+PRJ-003,Installation,2025-05-03,2025-05-07,Completed Late
+PRJ-003,Testing & Commissioning,2025-05-21,2025-06-01,Completed Late
+PRJ-003,Handover & Training,2025-06-09,2025-06-22,Completed Late
+PRJ-004,Site Survey,2025-03-25,2025-03-28,Completed Late
+PRJ-004,Design Approved,2025-04-22,2025-04-24,Completed
+PRJ-004,Procurement,2025-05-20,2025-05-21,Completed
+PRJ-004,Installation,2025-06-17,2025-06-16,Completed
+PRJ-004,Testing & Commissioning,2025-07-15,2025-07-15,Completed
+PRJ-004,Handover & Training,2025-08-12,2025-08-15,Completed Late
+PRJ-005,Site Survey,2025-05-24,2025-05-27,Completed Late
+PRJ-005,Design Approved,2025-06-14,2025-06-14,Completed
+PRJ-005,Procurement,2025-07-04,2025-07-03,Completed
+PRJ-005,Installation,2025-07-24,2025-07-24,Completed
+PRJ-005,Testing & Commissioning,2025-08-14,2025-08-17,Completed Late
+PRJ-005,Handover & Training,2025-09-03,2025-09-06,Completed Late
+PRJ-006,Site Survey,2025-12-03,2025-12-10,Completed Late
+PRJ-006,Design Approved,2025-12-27,,Overdue
+PRJ-006,Procurement,2026-01-21,,Upcoming
+PRJ-006,Installation,2026-02-15,,Upcoming
+PRJ-006,Testing & Commissioning,2026-03-11,,Upcoming
+PRJ-006,Handover & Training,2026-04-05,,Upcoming
+PRJ-007,Site Survey,2025-09-09,2025-09-15,Completed Late
+PRJ-007,Design Approved,2025-09-29,2025-10-02,Completed Late
+PRJ-007,Procurement,2025-10-20,2025-10-22,Completed
+PRJ-007,Installation,2025-11-09,2025-11-11,Completed
+PRJ-007,Testing & Commissioning,2025-11-29,2025-12-02,Completed Late
+PRJ-007,Handover & Training,2025-12-19,2025-12-25,Completed Late
+PRJ-008,Site Survey,2025-09-12,2025-09-10,Completed
+PRJ-008,Design Approved,2025-10-08,2025-10-06,Completed
+PRJ-008,Procurement,2025-11-03,2025-11-02,Completed
+PRJ-008,Installation,2025-11-29,2025-11-27,Completed
+PRJ-008,Testing & Commissioning,2025-12-25,2025-12-23,Completed
+PRJ-008,Handover & Training,2026-01-20,,Upcoming
+PRJ-009,Site Survey,2025-08-23,2025-08-23,Completed
+PRJ-009,Design Approved,2025-09-04,2025-09-08,Completed Late
+PRJ-009,Procurement,2025-09-17,2025-09-17,Completed
+PRJ-009,Installation,2025-09-29,2025-10-02,Completed Late
+PRJ-009,Testing & Commissioning,2025-10-12,2025-10-12,Completed
+PRJ-009,Handover & Training,2025-10-24,2025-10-26,Completed
+PRJ-010,Site Survey,2025-11-20,2025-12-02,Completed Late
+PRJ-010,Design Approved,2025-12-03,2025-12-17,Completed Late
+PRJ-010,Procurement,2025-12-16,2025-12-30,Completed Late
+PRJ-010,Installation,2025-12-28,,Overdue
+PRJ-010,Testing & Commissioning,2026-01-10,,Upcoming
+PRJ-010,Handover & Training,2026-01-23,,Upcoming
+PRJ-011,Site Survey,2025-10-29,2025-11-01,Completed Late
+PRJ-011,Design Approved,2025-11-24,2025-11-24,Completed
+PRJ-011,Procurement,2025-12-21,2025-12-24,Completed Late
+PRJ-011,Installation,2026-01-17,,Upcoming
+PRJ-011,Testing & Commissioning,2026-02-12,,Upcoming
+PRJ-011,Handover & Training,2026-03-11,,Upcoming
+PRJ-012,Site Survey,2025-12-01,2025-12-01,Completed
+PRJ-012,Design Approved,2025-12-24,2025-12-25,Completed
+PRJ-012,Procurement,2026-01-15,,Upcoming
+PRJ-012,Installation,2026-02-06,,Upcoming
+PRJ-012,Testing & Commissioning,2026-03-01,,Upcoming
+PRJ-012,Handover & Training,2026-03-23,,Upcoming

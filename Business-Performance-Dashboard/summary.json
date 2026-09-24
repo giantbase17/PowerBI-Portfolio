@@ -1,0 +1,37 @@
+{
+  "kpis": [
+    {
+      "label": "Revenue (actual)",
+      "value": "₦1.02B",
+      "note": "+2.0% vs budget"
+    },
+    {
+      "label": "Operating expenses",
+      "value": "₦735.6M",
+      "note": "+0.4% vs budget"
+    },
+    {
+      "label": "Net profit",
+      "value": "₦287.1M",
+      "note": "Budget ₦269.3M"
+    },
+    {
+      "label": "Net margin",
+      "value": "28.1%",
+      "note": "Budget 26.9%"
+    },
+    {
+      "label": "Revenue growth",
+      "value": "35.1%",
+      "note": "Q4 vs Q1"
+    }
+  ],
+  "expenseCategories": [
+    "Salaries",
+    "Equipment & Materials",
+    "Logistics & Fuel",
+    "Rent & Utilities",
+    "Marketing",
+    "Other Overheads"
+  ]
+}

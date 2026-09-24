@@ -1,0 +1,11 @@
+RouteID,Origin,Destination,DistanceKm,TargetDays
+R01,Lagos,Abuja,670,2
+R02,Lagos,Port Harcourt,559,2
+R03,Lagos,Ibadan,142,1
+R04,Lagos,Enugu,579,2
+R05,Abuja,Kano,432,1
+R06,Port Harcourt,Owerri,92,1
+R07,Enugu,Port Harcourt,239,1
+R08,Abuja,Enugu,361,1
+R09,Lagos,Kano,1042,3
+R10,Ibadan,Abuja,545,2
