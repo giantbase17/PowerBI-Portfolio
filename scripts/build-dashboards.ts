@@ -1,9 +1,9 @@
 // Reads every dataset, computes the report KPIs and writes, per dashboard:
-//   <Dashboard>/summary.json          headline KPIs (also used by the portfolio site)
+//   <Dashboard>/summary.json             headline KPIs (also used by the portfolio site)
 //   <Dashboard>/screenshots/report.html  a static preview of the Power BI report page
 //
-//   node scripts/build-dashboards.mjs
-//   node scripts/render-screenshots.mjs   (turns report.html into PNGs, needs Playwright)
+//   npm run build
+//   npm run screenshots   (turns report.html into PNGs, needs Playwright)
 //
 // The preview mirrors the report layout described in each README so the page can be
 // rebuilt visual-for-visual in Power BI Desktop from the same CSVs.
@@ -11,27 +11,70 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import type {
+  AccountType,
+  Actual,
+  Budget,
+  Cell,
+  Court,
+  Customer,
+  DailySiteMetric,
+  Device,
+  Hearing,
+  HearingMode,
+  Incident,
+  Milestone,
+  MilestoneStatus,
+  Product,
+  Project,
+  ProjectStatus,
+  Route,
+  Sale,
+  Severity,
+  Shipment,
+  Site,
+  TechIssue,
+  Utilisation,
+} from "./types.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 // ---------- data helpers ----------
-function load(file) {
+// Keys of R whose values are numbers, e.g. NumericKey<Actual> = "ActualNGN".
+type NumericKey<R> = { [K in keyof R]: R[K] extends number ? K : never }[keyof R];
+type StringKey<R> = { [K in keyof R]: R[K] extends string ? K : never }[keyof R];
+
+// Parses one of this repo's CSVs. Numeric-looking cells become numbers; the row
+// type T is the caller's promise about the file (see scripts/types.ts).
+function load<T>(file: string): T[] {
   const [head, ...lines] = readFileSync(join(root, file), "utf8").trim().split("\n");
   const cols = head.split(",");
   return lines.map((l) => {
-    const cells = l.match(/("([^"]|"")*"|[^,]*)(,|$)/g).map((c) => c.replace(/,$/, "").replace(/^"|"$/g, "").replace(/""/g, '"'));
-    return Object.fromEntries(cols.map((c, i) => [c, isNaN(cells[i]) || cells[i] === "" ? cells[i] : Number(cells[i])]));
+    const cells = (l.match(/("([^"]|"")*"|[^,]*)(,|$)/g) ?? []).map((c) => c.replace(/,$/, "").replace(/^"|"$/g, "").replace(/""/g, '"'));
+    const toCell = (v: string): Cell => (v === "" || isNaN(Number(v)) ? v : Number(v));
+    return Object.fromEntries(cols.map((c, i) => [c, toCell(cells[i])])) as T;
   });
 }
-const sum = (a, f = (x) => x) => a.reduce((s, x) => s + f(x), 0);
-const avg = (a, f) => (a.length ? sum(a, f) / a.length : 0);
-const group = (a, k) => a.reduce((m, x) => ((m[typeof k === "function" ? k(x) : x[k]] ||= []).push(x), m), {});
+function sum(a: readonly number[]): number;
+function sum<T>(a: readonly T[], f: (x: T) => number): number;
+function sum<T>(a: readonly T[], f: (x: T) => number = (x) => x as number): number {
+  return a.reduce((s, x) => s + f(x), 0);
+}
+const avg = <T>(a: readonly T[], f: (x: T) => number): number => (a.length ? sum(a, f) / a.length : 0);
+function group<T>(a: readonly T[], key: StringKey<T>): Record<string, T[]> {
+  const out: Record<string, T[]> = {};
+  for (const x of a) (out[x[key] as string] ||= []).push(x);
+  return out;
+}
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const monthOf = (d) => Number(String(d).slice(5, 7)) - 1;
-const byMonth = (rows, dateKey, f) => MONTHS.map((_, m) => f(rows.filter((r) => monthOf(r[dateKey]) === m)));
-const pct = (n, d = 1) => `${(n * 100).toFixed(d)}%`;
-const naira = (n) => (Math.abs(n) >= 1e9 ? `₦${(n / 1e9).toFixed(2)}B` : Math.abs(n) >= 1e6 ? `₦${(n / 1e6).toFixed(1)}M` : `₦${Math.round(n / 1e3)}K`);
-const num = (n) => n.toLocaleString("en-US");
+const monthOf = (d: string): number => Number(d.slice(5, 7)) - 1;
+const byMonth = <T>(rows: readonly T[], dateKey: StringKey<T>, f: (rows: T[]) => number): number[] =>
+  MONTHS.map((_, m) => f(rows.filter((r) => monthOf(r[dateKey] as string) === m)));
+const pct = (n: number, d = 1): string => `${(n * 100).toFixed(d)}%`;
+const naira = (n: number): string =>
+  Math.abs(n) >= 1e9 ? `₦${(n / 1e9).toFixed(2)}B` : Math.abs(n) >= 1e6 ? `₦${(n / 1e6).toFixed(1)}M` : `₦${Math.round(n / 1e3)}K`;
+const num = (n: number): string => n.toLocaleString("en-US");
+const fmtM = (v: number): string => `${Math.round(v / 1e6)}M`;
 
 // ---------- theme (validated: series pass CVD + contrast checks on the card surface) ----------
 const T = {
@@ -39,15 +82,45 @@ const T = {
   text: "#e8eef8", text2: "#a9b6cc", muted: "#7c8aa5",
   s1: "#2b9fd9", s2: "#d95926", s3: "#9085e9",
   good: "#0ca30c", warn: "#fab219", bad: "#d03b3b",
-};
+} as const;
 
 // ---------- SVG chart helpers (single axis, thin marks, recessive grid) ----------
-const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
-function niceMax(v) {
+type Fmt = (v: number) => string;
+interface Series {
+  name?: string;
+  values: number[];
+  color: string;
+}
+interface Target {
+  value: number;
+  label: string;
+}
+interface BarRow {
+  label: string;
+  value: number;
+}
+interface Slice extends BarRow {
+  color: string;
+}
+interface Padding {
+  t: number;
+  r: number;
+  b: number;
+  l: number;
+}
+type StatusKind = "good" | "warn" | "bad" | "idle";
+interface Kpi {
+  label: string;
+  value: string;
+  note?: string;
+}
+
+const esc = (s: string | number): string => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+function niceMax(v: number): number {
   const p = 10 ** Math.floor(Math.log10(v || 1));
   return Math.ceil(v / p / (v / p > 5 ? 2 : 1)) * p * (v / p > 5 ? 2 : 1);
 }
-function axisY(W, H, pad, max, fmt) {
+function axisY(W: number, H: number, pad: Padding, max: number, fmt: Fmt): string {
   let s = "";
   for (let i = 0; i <= 4; i++) {
     const y = pad.t + (H - pad.t - pad.b) * (1 - i / 4);
@@ -56,20 +129,28 @@ function axisY(W, H, pad, max, fmt) {
   }
   return s;
 }
-function columns({ labels, series, W = 560, H = 230, fmt = num, stacked = false, max }) {
-  const pad = { t: 12, r: 8, b: 26, l: 52 };
+function columns({ labels, series, W = 560, H = 230, fmt = num, stacked = false, max }: {
+  labels: readonly string[];
+  series: readonly Series[];
+  W?: number;
+  H?: number;
+  fmt?: Fmt;
+  stacked?: boolean;
+  max?: number;
+}): string {
+  const pad: Padding = { t: 12, r: 8, b: 26, l: 52 };
   const totals = labels.map((_, i) => (stacked ? sum(series, (s) => s.values[i]) : Math.max(...series.map((s) => s.values[i]))));
-  max ??= niceMax(Math.max(...totals));
+  const top = max ?? niceMax(Math.max(...totals));
   const band = (W - pad.l - pad.r) / labels.length;
   const inner = H - pad.t - pad.b;
   const groupW = band * 0.64;
   const barW = stacked ? groupW : (groupW - (series.length - 1) * 2) / series.length;
-  let s = axisY(W, H, pad, max, fmt);
+  let s = axisY(W, H, pad, top, fmt);
   labels.forEach((l, i) => {
     const x0 = pad.l + band * i + (band - groupW) / 2;
     let yAcc = pad.t + inner;
     series.forEach((ser, k) => {
-      const h = (ser.values[i] / max) * inner;
+      const h = (ser.values[i] / top) * inner;
       const x = stacked ? x0 : x0 + k * (barW + 2);
       const y = stacked ? yAcc - h : pad.t + inner - h;
       const isTop = !stacked || k === series.length - 1;
@@ -82,16 +163,26 @@ function columns({ labels, series, W = 560, H = 230, fmt = num, stacked = false,
   });
   return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}">${s}</svg>`;
 }
-function lines({ labels, series, W = 560, H = 230, fmt = num, min = 0, max, target, area = false }) {
-  const pad = { t: 12, r: 70, b: 26, l: 52 };
+function lines({ labels, series, W = 560, H = 230, fmt = num, min = 0, max, target, area = false }: {
+  labels: readonly string[];
+  series: readonly Series[];
+  W?: number;
+  H?: number;
+  fmt?: Fmt;
+  min?: number;
+  max?: number;
+  target?: Target;
+  area?: boolean;
+}): string {
+  const pad: Padding = { t: 12, r: 70, b: 26, l: 52 };
   const all = series.flatMap((s) => s.values);
-  max ??= niceMax(Math.max(...all));
+  const top = max ?? niceMax(Math.max(...all));
   const inner = H - pad.t - pad.b;
-  const x = (i) => pad.l + ((W - pad.l - pad.r) * i) / (labels.length - 1);
-  const y = (v) => pad.t + inner * (1 - (v - min) / (max - min));
+  const x = (i: number) => pad.l + ((W - pad.l - pad.r) * i) / (labels.length - 1);
+  const y = (v: number) => pad.t + inner * (1 - (v - min) / (top - min));
   let s = "";
   for (let i = 0; i <= 4; i++) {
-    const v = min + ((max - min) * i) / 4;
+    const v = min + ((top - min) * i) / 4;
     s += `<line x1="${pad.l}" x2="${W - pad.r}" y1="${y(v)}" y2="${y(v)}" stroke="${T.grid}"/><text x="${pad.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="${T.muted}">${esc(fmt(v))}</text>`;
   }
   if (target != null) s += `<line x1="${pad.l}" x2="${W - pad.r}" y1="${y(target.value)}" y2="${y(target.value)}" stroke="${T.text2}" stroke-dasharray="4 4"/><text x="${W - pad.r + 6}" y="${y(target.value) + 4}" font-size="11" fill="${T.text2}">${esc(target.label)}</text>`;
@@ -101,34 +192,45 @@ function lines({ labels, series, W = 560, H = 230, fmt = num, min = 0, max, targ
     s += `<polyline points="${pts}" fill="none" stroke="${ser.color}" stroke-width="2" stroke-linejoin="round"/>`;
     const last = ser.values.length - 1;
     s += `<circle cx="${x(last)}" cy="${y(ser.values[last])}" r="4" fill="${ser.color}" stroke="${T.card}" stroke-width="2"/>`;
-    if (series.length > 1) s += `<text x="${x(last) + 8}" y="${y(ser.values[last]) + 4}" font-size="11" fill="${T.text2}">${esc(ser.name)}</text>`;
+    if (series.length > 1) s += `<text x="${x(last) + 8}" y="${y(ser.values[last]) + 4}" font-size="11" fill="${T.text2}">${esc(ser.name ?? "")}</text>`;
   });
   const step = labels.length > 12 ? Math.ceil(labels.length / 12) : 1;
-  labels.forEach((l, i) => i % step === 0 && (s += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" font-size="11" fill="${T.muted}">${esc(l)}</text>`));
+  labels.forEach((l, i) => {
+    if (i % step === 0) s += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" font-size="11" fill="${T.muted}">${esc(l)}</text>`;
+  });
   return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}">${s}</svg>`;
 }
-function hbars({ rows, W = 560, fmt = num, min = 0, max, target, colorOf = () => T.s1, labelW = 170 }) {
+function hbars<R extends BarRow>({ rows, W = 560, fmt = num, min = 0, max, target, colorOf = () => T.s1, labelW = 170 }: {
+  rows: readonly R[];
+  W?: number;
+  fmt?: Fmt;
+  min?: number;
+  max?: number;
+  target?: Target;
+  colorOf?: (r: R) => string;
+  labelW?: number;
+}): string {
   const rowH = 26;
   const H = rows.length * rowH + 22;
-  max ??= niceMax(Math.max(...rows.map((r) => r.value)));
+  const top = max ?? niceMax(Math.max(...rows.map((r) => r.value)));
   const x0 = labelW;
   const span = W - x0 - 64;
   let s = "";
   rows.forEach((r, i) => {
     const y = 6 + i * rowH;
-    const w = Math.max(2, ((r.value - min) / (max - min)) * span);
+    const w = Math.max(2, ((r.value - min) / (top - min)) * span);
     s += `<text x="${x0 - 10}" y="${y + 13}" text-anchor="end" font-size="12" fill="${T.text2}">${esc(r.label)}</text>`;
     s += `<rect x="${x0}" y="${y + 2}" width="${span}" height="14" rx="4" fill="${T.grid}"/>`;
     s += `<path d="M${x0},${y + 2} H${x0 + w - 4} Q${x0 + w},${y + 2} ${x0 + w},${y + 6} V${y + 12} Q${x0 + w},${y + 16} ${x0 + w - 4},${y + 16} H${x0} Z" fill="${colorOf(r)}"/>`;
     s += `<text x="${x0 + span + 8}" y="${y + 13}" font-size="12" fill="${T.text}">${esc(fmt(r.value))}</text>`;
   });
   if (target) {
-    const tx = x0 + ((target.value - min) / (max - min)) * span;
+    const tx = x0 + ((target.value - min) / (top - min)) * span;
     s += `<line x1="${tx}" x2="${tx}" y1="2" y2="${H - 18}" stroke="${T.text2}" stroke-dasharray="3 3"/><text x="${tx}" y="${H - 4}" text-anchor="middle" font-size="11" fill="${T.text2}">${esc(target.label)}</text>`;
   }
   return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}">${s}</svg>`;
 }
-function donut({ slices, size = 170, center }) {
+function donut({ slices, size = 170, center }: { slices: readonly Slice[]; size?: number; center?: readonly [string, string] }): string {
   const total = sum(slices, (s) => s.value);
   const r = size / 2 - 12;
   const c = size / 2;
@@ -147,18 +249,19 @@ function donut({ slices, size = 170, center }) {
     .join("");
   return `<div class="donut"><svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">${s}</svg><ul class="legend">${legend}</ul></div>`;
 }
-function legend(items) {
+function legend(items: readonly { name: string; color: string }[]): string {
   return `<ul class="keys">${items.map((i) => `<li><i style="background:${i.color}"></i>${esc(i.name)}</li>`).join("")}</ul>`;
 }
-function table(head, rows) {
+// Cells are HTML: escape plain text before passing it in.
+function table(head: readonly string[], rows: readonly (readonly string[])[]): string {
   return `<table><thead><tr>${head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows
     .map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`)
     .join("")}</tbody></table>`;
 }
-const status = (kind, label) => `<span class="status ${kind}"><i></i>${esc(label)}</span>`;
-const bar = (p, color = T.s1) => `<span class="meter"><span style="width:${Math.min(100, p * 100)}%;background:${color}"></span></span>`;
+const status = (kind: StatusKind, label: string): string => `<span class="status ${kind}"><i></i>${esc(label)}</span>`;
+const bar = (p: number, color: string = T.s1): string => `<span class="meter"><span style="width:${Math.min(100, p * 100)}%;background:${color}"></span></span>`;
 
-function page({ title, subtitle, filters, kpis, body }) {
+function page({ title, subtitle, filters, kpis, body }: { title: string; subtitle: string; filters: readonly string[]; kpis: readonly Kpi[]; body: string }): string {
   return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:1600px;height:1000px;background:${T.bg};color:${T.text};font-family:"Segoe UI",Inter,system-ui,sans-serif;padding:26px 30px;overflow:hidden}
@@ -202,10 +305,11 @@ ${body}
 <footer><span>Onu Emeka Barnabas · Power BI Portfolio</span><span>Data: synthetic sample, Jan–Dec 2025</span></footer>
 </body></html>`;
 }
-const colW = (ratios, i) => Math.floor(((1540 - 14 * (ratios.length - 1)) * ratios[i]) / ratios.reduce((a, b) => a + b, 0) - 34);
-const card = (title, content, extra = "") => `<div class="card"><h2>${esc(title)}${extra.startsWith("<ul") ? "" : extra}</h2>${extra.startsWith("<ul") ? extra : ""}${content}</div>`;
+// Inner SVG width for column i of a card grid with the given fr ratios (1540px content, 14px gaps, 34px card padding).
+const colW = (ratios: readonly number[], i: number): number => Math.floor(((1540 - 14 * (ratios.length - 1)) * ratios[i]) / ratios.reduce((a, b) => a + b, 0) - 34);
+const card = (title: string, content: string, extra = ""): string => `<div class="card"><h2>${esc(title)}${extra.startsWith("<ul") ? "" : extra}</h2>${extra.startsWith("<ul") ? extra : ""}${content}</div>`;
 
-function write(dir, summary, html) {
+function write(dir: string, summary: { kpis: readonly Kpi[] } & Record<string, unknown>, html: string): void {
   mkdirSync(join(root, dir, "screenshots"), { recursive: true });
   writeFileSync(join(root, dir, "summary.json"), JSON.stringify(summary, null, 2) + "\n");
   writeFileSync(join(root, dir, "screenshots", "report.html"), html);
@@ -214,10 +318,10 @@ function write(dir, summary, html) {
 
 // ---------- 1. Logistics ----------
 {
-  const routes = load("Logistics-Dashboard/dataset/routes.csv");
-  const ships = load("Logistics-Dashboard/dataset/shipments.csv");
-  const onTime = (rs) => (rs.length ? rs.filter((r) => r.OnTime === "Y").length / rs.length : 0);
-  const kpis = [
+  const routes = load<Route>("Logistics-Dashboard/dataset/routes.csv");
+  const ships = load<Shipment>("Logistics-Dashboard/dataset/shipments.csv");
+  const onTime = (rs: readonly Shipment[]): number => (rs.length ? rs.filter((r) => r.OnTime === "Y").length / rs.length : 0);
+  const kpis: Kpi[] = [
     { label: "Total shipments", value: num(ships.length), note: "Jan–Dec 2025" },
     { label: "On-time delivery", value: pct(onTime(ships)), note: "Target 85%" },
     { label: "Avg transit time", value: `${avg(ships, (s) => s.ActualDays).toFixed(2)} days`, note: `Promised ${avg(ships, (s) => s.PromisedDays).toFixed(2)} days` },
@@ -249,14 +353,14 @@ function write(dir, summary, html) {
 
 // ---------- 2. Sales ----------
 {
-  const products = Object.fromEntries(load("Sales-Dashboard/dataset/products.csv").map((p) => [p.ProductID, p]));
-  const customers = Object.fromEntries(load("Sales-Dashboard/dataset/customers.csv").map((c) => [c.CustomerID, c]));
-  const sales = load("Sales-Dashboard/dataset/sales.csv").map((s) => ({ ...s, ...products[s.ProductID], ...customers[s.CustomerID] }));
+  const products = Object.fromEntries(load<Product>("Sales-Dashboard/dataset/products.csv").map((p) => [p.ProductID, p]));
+  const customers = Object.fromEntries(load<Customer>("Sales-Dashboard/dataset/customers.csv").map((c) => [c.CustomerID, c]));
+  const sales = load<Sale>("Sales-Dashboard/dataset/sales.csv").map((s) => ({ ...s, ...products[s.ProductID], ...customers[s.CustomerID] }));
   const rev = sum(sales, (s) => s.RevenueNGN);
   const profit = sum(sales, (s) => s.ProfitNGN);
   const h1 = sum(sales.filter((s) => monthOf(s.OrderDate) < 6), (s) => s.RevenueNGN);
   const h2 = rev - h1;
-  const kpis = [
+  const kpis: Kpi[] = [
     { label: "Revenue", value: naira(rev), note: `H2 vs H1 ${h2 > h1 ? "+" : ""}${pct(h2 / h1 - 1)}` },
     { label: "Gross profit", value: naira(profit), note: "Revenue − cost of goods" },
     { label: "Gross margin", value: pct(profit / rev), note: "After discounts" },
@@ -267,7 +371,6 @@ function write(dir, summary, html) {
   const reg = Object.entries(group(sales, "Region")).map(([k, v]) => ({ label: k, value: sum(v, (s) => s.RevenueNGN) })).sort((a, b) => b.value - a.value);
   const seg = Object.entries(group(sales, "Segment")).map(([k, v]) => ({ label: k, value: sum(v, (s) => s.RevenueNGN), orders: v.length, customers: new Set(v.map((x) => x.CustomerID)).size })).sort((a, b) => b.value - a.value);
   const prod = Object.entries(group(sales, "Product")).map(([k, v]) => ({ label: k, value: sum(v, (s) => s.RevenueNGN), units: sum(v, (s) => s.Quantity), margin: sum(v, (s) => s.ProfitNGN) / sum(v, (s) => s.RevenueNGN) })).sort((a, b) => b.value - a.value);
-  const fmtM = (v) => `${Math.round(v / 1e6)}M`;
   const html = page({
     title: "Sales Performance Dashboard",
     subtitle: "Revenue, profitability, products and customer segments for a network & power equipment distributor",
@@ -288,20 +391,23 @@ function write(dir, summary, html) {
 
 // ---------- 3. Business performance ----------
 {
-  const actuals = load("Business-Performance-Dashboard/dataset/actuals.csv");
-  const budget = load("Business-Performance-Dashboard/dataset/budget.csv");
-  const tot = (rows, type, key) => sum(rows.filter((r) => r.AccountType === type), (r) => r[key]);
+  const actuals = load<Actual>("Business-Performance-Dashboard/dataset/actuals.csv");
+  const budget = load<Budget>("Business-Performance-Dashboard/dataset/budget.csv");
+  const tot = <R extends Actual | Budget>(rows: readonly R[], type: AccountType, key: NumericKey<R>): number =>
+    sum(rows.filter((r) => r.AccountType === type), (r) => r[key] as number);
   const revA = tot(actuals, "Revenue", "ActualNGN");
   const revB = tot(budget, "Revenue", "BudgetNGN");
   const expA = tot(actuals, "Expense", "ActualNGN");
   const expB = tot(budget, "Expense", "BudgetNGN");
   const netA = revA - expA;
   const netB = revB - expB;
-  const monthly = (rows, key) => byMonth(rows, "Month", (r) => tot(r, "Revenue", key) - tot(r, "Expense", key));
-  const q = (m) => Math.floor(m / 3);
+  const monthly = <R extends Actual | Budget>(rows: readonly R[], key: NumericKey<R>): number[] =>
+    // Actual and Budget both carry a string Month column; TypeScript cannot see that through the generic.
+    byMonth(rows, "Month" as StringKey<R>, (r) => tot(r, "Revenue", key) - tot(r, "Expense", key));
+  const q = (m: number): number => Math.floor(m / 3);
   const q4 = sum(actuals.filter((r) => r.AccountType === "Revenue" && q(monthOf(r.Month)) === 3), (r) => r.ActualNGN);
   const q1 = sum(actuals.filter((r) => r.AccountType === "Revenue" && q(monthOf(r.Month)) === 0), (r) => r.ActualNGN);
-  const kpis = [
+  const kpis: Kpi[] = [
     { label: "Revenue (actual)", value: naira(revA), note: `${revA >= revB ? "+" : ""}${pct(revA / revB - 1)} vs budget` },
     { label: "Operating expenses", value: naira(expA), note: `${expA >= expB ? "+" : ""}${pct(expA / expB - 1)} vs budget` },
     { label: "Net profit", value: naira(netA), note: `Budget ${naira(netB)}` },
@@ -309,14 +415,13 @@ function write(dir, summary, html) {
     { label: "Revenue growth", value: pct(q4 / q1 - 1), note: "Q4 vs Q1" },
   ];
   const expCats = [...new Set(actuals.filter((r) => r.AccountType === "Expense").map((r) => r.Category))];
-  const catRows = (type) =>
+  const catRows = (type: AccountType) =>
     [...new Set(actuals.filter((r) => r.AccountType === type).map((r) => r.Category))].map((c) => {
       const a = sum(actuals.filter((r) => r.Category === c), (r) => r.ActualNGN);
       const b = sum(budget.filter((r) => r.Category === c), (r) => r.BudgetNGN);
       return { c, a, b, v: a / b - 1 };
     });
-  const varCell = (v, good) => (Math.abs(v) < 0.02 ? status("idle", pct(v)) : good ? status("good", `${v > 0 ? "+" : ""}${pct(v)}`) : status("bad", `${v > 0 ? "+" : ""}${pct(v)}`));
-  const fmtM = (v) => `${Math.round(v / 1e6)}M`;
+  const varCell = (v: number, good: boolean): string => (Math.abs(v) < 0.02 ? status("idle", pct(v)) : good ? status("good", `${v > 0 ? "+" : ""}${pct(v)}`) : status("bad", `${v > 0 ? "+" : ""}${pct(v)}`));
   const html = page({
     title: "Business Performance Dashboard",
     subtitle: "Executive view of revenue, expenses and profitability against the 2025 budget",
@@ -341,23 +446,26 @@ function write(dir, summary, html) {
 
 // ---------- 4. Project management ----------
 {
-  const projects = load("Project-Management-Dashboard/dataset/projects.csv");
-  const milestones = load("Project-Management-Dashboard/dataset/milestones.csv");
-  const util = load("Project-Management-Dashboard/dataset/resource_utilisation.csv");
+  const projects = load<Project>("Project-Management-Dashboard/dataset/projects.csv");
+  const milestones = load<Milestone>("Project-Management-Dashboard/dataset/milestones.csv");
+  const util = load<Utilisation>("Project-Management-Dashboard/dataset/resource_utilisation.csv");
   const active = projects.filter((p) => p.Status !== "Completed");
   const done = milestones.filter((m) => m.ActualDate);
   const onTimeMs = done.filter((m) => m.Status === "Completed").length / done.length;
   const utilPct = sum(util, (u) => u.HoursAllocated) / sum(util, (u) => u.HoursAvailable);
-  const kpis = [
+  const kpis: Kpi[] = [
     { label: "Projects in portfolio", value: String(projects.length), note: `${active.length} active · ${projects.length - active.length} completed` },
     { label: "At risk", value: String(projects.filter((p) => p.Status === "At Risk").length), note: `${projects.filter((p) => p.Status === "Watch").length} on watch` },
     { label: "Milestones on time", value: pct(onTimeMs, 0), note: `${done.length} of ${milestones.length} completed` },
     { label: "Budget used", value: pct(sum(projects, (p) => p.SpentNGN) / sum(projects, (p) => p.BudgetNGN), 0), note: `${naira(sum(projects, (p) => p.SpentNGN))} of ${naira(sum(projects, (p) => p.BudgetNGN))}` },
     { label: "Team utilisation", value: pct(utilPct, 0), note: "Allocated ÷ available hours" },
   ];
-  const st = { "On Track": "good", Watch: "warn", "At Risk": "bad", Completed: "idle" };
+  const st: Record<ProjectStatus, StatusKind> = { "On Track": "good", Watch: "warn", "At Risk": "bad", Completed: "idle" };
+  const riskOrder: ProjectStatus[] = ["At Risk", "Watch", "On Track", "Completed"];
+  const msStatuses: MilestoneStatus[] = ["Completed", "Completed Late", "Overdue", "Upcoming"];
+  const msKind: Record<MilestoneStatus, StatusKind> = { Completed: "good", "Completed Late": "warn", Overdue: "bad", Upcoming: "idle" };
   const teams = Object.entries(group(util, "Team")).map(([k, v]) => ({ label: k, value: (sum(v, (u) => u.HoursAllocated) / sum(v, (u) => u.HoursAvailable)) * 100 })).sort((a, b) => b.value - a.value);
-  const msCounts = ["Completed", "Completed Late", "Overdue", "Upcoming"].map((s) => ({ s, n: milestones.filter((m) => m.Status === s).length }));
+  const msCounts = msStatuses.map((s) => ({ s, n: milestones.filter((m) => m.Status === s).length }));
   const weekly = Object.entries(group(util, "WeekStarting")).sort().map(([, v]) => (sum(v, (u) => u.HoursAllocated) / sum(v, (u) => u.HoursAvailable)) * 100);
   const html = page({
     title: "Project Management Dashboard",
@@ -365,10 +473,10 @@ function write(dir, summary, html) {
     filters: ["Year <b>2025</b>", "Sector <b>All</b>", "PM <b>All</b>"],
     kpis,
     body: `<div class="grid" style="grid-template-columns:1.55fr 1fr">
-      ${card("Project status", table(["Project", "Sector", "Progress", "", "Budget used", "Status"], [...projects].sort((a, b) => ["At Risk", "Watch", "On Track", "Completed"].indexOf(a.Status) - ["At Risk", "Watch", "On Track", "Completed"].indexOf(b.Status)).slice(0, 9).map((p) => [esc(p.ProjectName), p.Sector, `${p.PercentComplete}%`, bar(p.PercentComplete / 100), pct(p.SpentNGN / p.BudgetNGN, 0), status(st[p.Status], p.Status)])))}
+      ${card("Project status", table(["Project", "Sector", "Progress", "", "Budget used", "Status"], [...projects].sort((a, b) => riskOrder.indexOf(a.Status) - riskOrder.indexOf(b.Status)).slice(0, 9).map((p) => [esc(p.ProjectName), p.Sector, `${p.PercentComplete}%`, bar(p.PercentComplete / 100), pct(p.SpentNGN / p.BudgetNGN, 0), status(st[p.Status], p.Status)])))}
       <div class="grid">
         ${card("Utilisation by team", hbars({ rows: teams, W: colW([1.55, 1], 1), max: 100, fmt: (v) => `${v.toFixed(0)}%`, target: { value: 85, label: "85% cap" }, labelW: 150 }))}
-        ${card("Milestones", table(["Status", "Count", ""], msCounts.map(({ s, n }) => [status(s === "Completed" ? "good" : s === "Completed Late" ? "warn" : s === "Overdue" ? "bad" : "idle", s), String(n), bar(n / milestones.length)])))}
+        ${card("Milestones", table(["Status", "Count", ""], msCounts.map(({ s, n }) => [status(msKind[s], s), String(n), bar(n / milestones.length)])))}
       </div>
     </div>
     <div class="grid" style="margin-top:14px">
@@ -380,23 +488,24 @@ function write(dir, summary, html) {
 
 // ---------- 5. Network infrastructure ----------
 {
-  const sites = load("Network-Infrastructure-Dashboard/dataset/sites.csv");
-  const devices = load("Network-Infrastructure-Dashboard/dataset/devices.csv");
-  const daily = load("Network-Infrastructure-Dashboard/dataset/daily_site_metrics.csv");
-  const incidents = load("Network-Infrastructure-Dashboard/dataset/incidents.csv");
-  const uptime = (rs) => sum(rs, (r) => r.UptimeMinutes) / (rs.length * 1440);
+  const sites = load<Site>("Network-Infrastructure-Dashboard/dataset/sites.csv");
+  const devices = load<Device>("Network-Infrastructure-Dashboard/dataset/devices.csv");
+  const daily = load<DailySiteMetric>("Network-Infrastructure-Dashboard/dataset/daily_site_metrics.csv");
+  const incidents = load<Incident>("Network-Infrastructure-Dashboard/dataset/incidents.csv");
+  const uptime = (rs: readonly DailySiteMetric[]): number => sum(rs, (r) => r.UptimeMinutes) / (rs.length * 1440);
   const bySite = group(daily, "SiteID");
   const siteRows = sites.map((s) => ({ label: s.Site, value: uptime(bySite[s.SiteID]) * 100, link: s.PrimaryLink, cap: s.CapacityMbps, util: avg(bySite[s.SiteID], (r) => r.AvgUtilisationMbps) / s.CapacityMbps })).sort((a, b) => b.value - a.value);
+  const capacity: Record<string, number> = Object.fromEntries(sites.map((s) => [s.SiteID, s.CapacityMbps]));
   const healthy = devices.filter((d) => d.Status === "Healthy").length;
-  const kpis = [
+  const kpis: Kpi[] = [
     { label: "Network availability", value: pct(uptime(daily), 2), note: "All sites · SLA 99.5%" },
     { label: "Devices healthy", value: `${healthy} / ${devices.length}`, note: `${devices.filter((d) => d.Status === "Critical").length} critical` },
     { label: "Incidents", value: String(incidents.length), note: `${incidents.filter((i) => i.Severity === "P1").length} P1 · ${incidents.filter((i) => i.Severity === "P2").length} P2` },
     { label: "Mean time to restore", value: `${Math.round(avg(incidents, (i) => i.ResolutionMinutes))} min`, note: "Opened → resolved" },
-    { label: "Avg link utilisation", value: pct(avg(daily, (d) => d.AvgUtilisationMbps / sites.find((s) => s.SiteID === d.SiteID).CapacityMbps), 0), note: "Of provisioned capacity" },
+    { label: "Avg link utilisation", value: pct(avg(daily, (d) => d.AvgUtilisationMbps / capacity[d.SiteID]), 0), note: "Of provisioned capacity" },
   ];
-  const sev = ["P1", "P2", "P3"];
-  const sevColor = { P1: T.s2, P2: T.s3, P3: T.s1 };
+  const sev: Severity[] = ["P1", "P2", "P3"];
+  const sevColor: Record<Severity, string> = { P1: T.s2, P2: T.s3, P3: T.s1 };
   const cats = Object.entries(group(incidents, "Category")).map(([k, v]) => ({ label: k, value: v.length })).sort((a, b) => b.value - a.value);
   const html = page({
     title: "Network Infrastructure Dashboard",
@@ -418,21 +527,21 @@ function write(dir, summary, html) {
 
 // ---------- 6. Court digitalization ----------
 {
-  const courts = load("Court-Digitalization-Dashboard/dataset/courts.csv");
-  const hearings = load("Court-Digitalization-Dashboard/dataset/hearings.csv");
-  const issues = load("Court-Digitalization-Dashboard/dataset/tech_issues.csv");
+  const courts = load<Court>("Court-Digitalization-Dashboard/dataset/courts.csv");
+  const hearings = load<Hearing>("Court-Digitalization-Dashboard/dataset/hearings.csv");
+  const issues = load<TechIssue>("Court-Digitalization-Dashboard/dataset/tech_issues.csv");
   const remote = hearings.filter((h) => h.Mode !== "In-person");
-  const adj = (rs) => rs.filter((h) => h.Adjourned === "Y").length / rs.length;
+  const adj = (rs: readonly Hearing[]): number => rs.filter((h) => h.Adjourned === "Y").length / rs.length;
   const dec = hearings.filter((h) => monthOf(h.Date) === 11);
-  const kpis = [
+  const kpis: Kpi[] = [
     { label: "Hearings held", value: num(hearings.length), note: `${courts.length} courts · ${sum(courts, (c) => c.Courtrooms)} courtrooms` },
     { label: "Virtual & hybrid share", value: pct(remote.length / hearings.length), note: `December: ${pct(dec.filter((h) => h.Mode !== "In-person").length / dec.length)}` },
     { label: "Tech issue rate", value: pct(issues.length / remote.length), note: "Of virtual & hybrid hearings" },
     { label: "Adjournment rate", value: pct(adj(hearings)), note: `Virtual ${pct(adj(remote))} · In-person ${pct(adj(hearings.filter((h) => h.Mode === "In-person")))}` },
     { label: "Minutes lost to tech", value: num(sum(issues, (i) => i.MinutesLost)), note: `${(sum(issues, (i) => i.MinutesLost) / issues.length).toFixed(0)} min per issue` },
   ];
-  const modes = ["In-person", "Virtual", "Hybrid"];
-  const modeColor = { "In-person": T.s3, Virtual: T.s1, Hybrid: T.s2 };
+  const modes: HearingMode[] = ["In-person", "Virtual", "Hybrid"];
+  const modeColor: Record<HearingMode, string> = { "In-person": T.s3, Virtual: T.s1, Hybrid: T.s2 };
   const courtColor = [T.s1, T.s2, T.s3];
   const catRows = Object.entries(group(issues, "Category")).map(([k, v]) => ({ label: k, value: v.length })).sort((a, b) => b.value - a.value);
   const issueTrend = byMonth(remote, "Date", (r) => (r.length ? (r.filter((h) => h.TechIssue === "Y").length / r.length) * 100 : 0));
