@@ -2,7 +2,7 @@
 
 Project portfolio dashboard tracking progress, milestones, budget use, resource utilisation, risk indicators and delivery status across 12 infrastructure projects.
 
-![Project Management Dashboard](screenshots/report.png)
+![Project Management Dashboard](screenshots/report.webp)
 
 **Tools:** Power BI · Excel
 **Data:** synthetic sample data for January–December 2025 (see [Dataset](#dataset))
@@ -140,7 +140,7 @@ Utilisation % = DIVIDE ( SUM ( resource_utilisation[HoursAllocated] ), SUM ( res
 2. In Power Query, set column types (dates, whole numbers, decimals) and add a `Date` table (`CALENDAR(DATE(2025,1,1), DATE(2025,12,31))`) marked as a date table.
 3. Create the relationships listed under **Data model**.
 4. Add the DAX measures above in a dedicated `_Measures` table.
-5. Build the page to match `screenshots/report.png`, apply the theme in [`../theme/giantbase-dark.json`](../theme/giantbase-dark.json), and save as `powerbi/ProjectManagement.pbix`.
+5. Build the page to match `screenshots/report.webp`, apply the theme in [`../theme/giantbase-dark.json`](../theme/giantbase-dark.json), and save as `powerbi/ProjectManagement.pbix`.
 
 ## Files
 
@@ -150,6 +150,6 @@ Project-Management-Dashboard/
 ├── summary.json          headline KPIs computed from the dataset
 ├── dataset/              CSV source data
 ├── sql/                  schema and KPI queries
-├── screenshots/          report.png, thumbnail.png, report.html (static preview)
+├── screenshots/          report.webp, thumbnail.webp, report.html (static preview)
 └── powerbi/              ProjectManagement.pbix
 ```

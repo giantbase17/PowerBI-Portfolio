@@ -2,7 +2,7 @@
 
 Business intelligence dashboard giving visibility into sales performance, revenue trends, customer segments and product profitability for a distributor of networking, security, power and cabling equipment.
 
-![Sales Performance Dashboard](screenshots/report.png)
+![Sales Performance Dashboard](screenshots/report.webp)
 
 **Tools:** Power BI · SQL · Excel
 **Data:** synthetic sample data for January–December 2025 (see [Dataset](#dataset))
@@ -144,7 +144,7 @@ RETURN DIVIDE ( H2 - H1, H1 )
 2. In Power Query, set column types (dates, whole numbers, decimals) and add a `Date` table (`CALENDAR(DATE(2025,1,1), DATE(2025,12,31))`) marked as a date table.
 3. Create the relationships listed under **Data model**.
 4. Add the DAX measures above in a dedicated `_Measures` table.
-5. Build the page to match `screenshots/report.png`, apply the theme in [`../theme/giantbase-dark.json`](../theme/giantbase-dark.json), and save as `powerbi/Sales.pbix`.
+5. Build the page to match `screenshots/report.webp`, apply the theme in [`../theme/giantbase-dark.json`](../theme/giantbase-dark.json), and save as `powerbi/Sales.pbix`.
 
 ## Files
 
@@ -154,6 +154,6 @@ Sales-Dashboard/
 ├── summary.json          headline KPIs computed from the dataset
 ├── dataset/              CSV source data
 ├── sql/                  schema and KPI queries
-├── screenshots/          report.png, thumbnail.png, report.html (static preview)
+├── screenshots/          report.webp, thumbnail.webp, report.html (static preview)
 └── powerbi/              Sales.pbix
 ```

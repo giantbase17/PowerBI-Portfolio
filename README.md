@@ -19,37 +19,37 @@ Portfolio: [onuemekaportfolio.vercel.app/projects](https://onuemekaportfolio.ver
 
 Shipment volumes, route efficiency, delivery performance and operational KPIs.
 
-[![Logistics Operations Dashboard](Logistics-Dashboard/screenshots/thumbnail.png)](Logistics-Dashboard/)
+[![Logistics Operations Dashboard](Logistics-Dashboard/screenshots/thumbnail.webp)](Logistics-Dashboard/)
 
 ### [Sales Performance Dashboard](Sales-Dashboard/)
 
 Revenue trends, product profitability, regional breakdown and customer segments.
 
-[![Sales Performance Dashboard](Sales-Dashboard/screenshots/thumbnail.png)](Sales-Dashboard/)
+[![Sales Performance Dashboard](Sales-Dashboard/screenshots/thumbnail.webp)](Sales-Dashboard/)
 
 ### [Business Performance Dashboard](Business-Performance-Dashboard/)
 
 Executive P&L, budget vs actual, margins and revenue growth.
 
-[![Business Performance Dashboard](Business-Performance-Dashboard/screenshots/thumbnail.png)](Business-Performance-Dashboard/)
+[![Business Performance Dashboard](Business-Performance-Dashboard/screenshots/thumbnail.webp)](Business-Performance-Dashboard/)
 
 ### [Project Management Dashboard](Project-Management-Dashboard/)
 
 Project status, milestones, budget use and team utilisation.
 
-[![Project Management Dashboard](Project-Management-Dashboard/screenshots/thumbnail.png)](Project-Management-Dashboard/)
+[![Project Management Dashboard](Project-Management-Dashboard/screenshots/thumbnail.webp)](Project-Management-Dashboard/)
 
 ### [Network Infrastructure Dashboard](Network-Infrastructure-Dashboard/)
 
 Site availability against SLA, incidents, MTTR, device health and bandwidth.
 
-[![Network Infrastructure Dashboard](Network-Infrastructure-Dashboard/screenshots/thumbnail.png)](Network-Infrastructure-Dashboard/)
+[![Network Infrastructure Dashboard](Network-Infrastructure-Dashboard/screenshots/thumbnail.webp)](Network-Infrastructure-Dashboard/)
 
 ### [Court Digitalization Dashboard](Court-Digitalization-Dashboard/)
 
 Virtual hearing adoption, tech issue rates and adjournments after digital courtroom go-live.
 
-[![Court Digitalization Dashboard](Court-Digitalization-Dashboard/screenshots/thumbnail.png)](Court-Digitalization-Dashboard/)
+[![Court Digitalization Dashboard](Court-Digitalization-Dashboard/screenshots/thumbnail.webp)](Court-Digitalization-Dashboard/)
 
 ## What each project folder contains
 
@@ -59,7 +59,7 @@ Virtual hearing adoption, tech issue rates and adjournments after digital courtr
 ├── summary.json      headline KPIs computed from the dataset
 ├── dataset/          CSV source data
 ├── sql/              schema.sql and kpis.sql (PostgreSQL)
-├── screenshots/      report.png, thumbnail.png, report.html
+├── screenshots/      report.webp, thumbnail.webp, report.html
 └── powerbi/          the .pbix report file
 ```
 
@@ -84,7 +84,7 @@ npm run all                       # typecheck → data → summaries + previews 
 | `npm run typecheck` | `tsc --noEmit` over all scripts (strict mode) |
 | `npm run data` | writes every `dataset/*.csv` from fixed seeds |
 | `npm run build` | computes KPIs into `summary.json` and renders `screenshots/report.html` |
-| `npm run screenshots` | captures `report.png` and `thumbnail.png` from each preview |
+| `npm run screenshots` | captures `report.webp` and `thumbnail.webp` from each preview |
 
 ## Power BI theme
 
